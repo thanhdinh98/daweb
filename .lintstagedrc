@@ -1,0 +1,8 @@
+{
+      "linters": {
+            "*.js": [
+                  "./node_modules/.bin/eslint"
+            ]
+      },
+      "ignore": ["./node_modules"]
+}
