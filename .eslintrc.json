@@ -11,5 +11,8 @@
             "jsx": true
         }
     },
-    "extends": "airbnb-base"
+    "extends": "airbnb-base",
+    "rules": {
+        "no-restricted-globals": 0
+    }
 }

@@ -1,2 +1,3 @@
-console.log('hello');
-console.log('hi');
+import router from './routes';
+
+router();
