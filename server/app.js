@@ -10,5 +10,6 @@ const indexRouter = require('./routes/index.route.js');
 app.use('/', indexRouter);
 
 
-app.listen(port);
-console.log(`Server is listening on port ${port}`);
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
+});
