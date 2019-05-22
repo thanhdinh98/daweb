@@ -13,6 +13,7 @@
     },
     "extends": "airbnb-base",
     "rules": {
-        "no-restricted-globals": 0
+        "no-restricted-globals": 0,
+        "linebreak-style": "off"
     }
 }

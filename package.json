@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "./node_modules/.bin/lint-staged",
-    "dev": "node ./source/server.js"
+    "dev": "node ./source/server.js",
+    "server": "nodemon ./server/app.js"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +31,7 @@
     "express": "^4.17.0",
     "express-history-api-fallback": "^2.2.1",
     "http-proxy-middleware": "^0.19.1",
+    "nodemon": "^1.19.0",
     "parcel-bundler": "^1.12.3"
   }
 }
