@@ -1,8 +1,8 @@
-const express = require('express');
+const Router = require('express-promise-router');
 
-const router = express.Router();
-const UserCtrl = require('../controllers/index.controller.js');
+const router = Router();
+const indexCtrl = require('../controllers/index.controller');
 
-router.get('/', UserCtrl.getIndexPage);
+router.get('/', indexCtrl.getIndexPage);
 
 module.exports = router;
