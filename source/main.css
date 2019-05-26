@@ -1,0 +1,123 @@
+/* Reset */
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6{
+  margin: 0;
+}
+
+.nav a{
+  color: #120B0C;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* List item */
+
+.list-item{
+  flex-wrap: nowrap;
+}
+
+/* Item */
+
+.item{
+  margin: 10px;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  bottom: 0;
+  transition: 0.4s;
+}
+
+.item .image{
+  width: 200px;
+  height: 250px;
+  border-radius: 5px;
+}
+
+.item .content{
+  position: absolute;
+  bottom: 0;
+  color: white;
+  height: 100px;
+  transition: 0.4s;
+}
+
+.item:hover .content{
+  bottom: 20px;
+}
+
+.item:hover{
+  bottom: 10px;
+}
+
+
+/* Hot movie */
+
+.hot-movie{
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  width: 100%;
+}
+
+.hot-movie .image{
+  height: 250px;
+  width: 100%;
+}
+
+.hot-movie .content{
+  color: white;
+  position: absolute;
+  bottom: 0;
+}
+  
+/* Topbar */
+
+.top-bar{
+  height: 60px;
+}
+
+.hotline{
+  background-color: #3654BB;
+  color: white;
+  width: 50%;
+  height: 60px;
+  padding-top: 5px;
+}
+
+.hotline .text{
+  font-size: 14px;
+}
+
+.right-panel a{
+  margin-right: 10px;
+}
+
+.logo{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.nav .active{
+  font-weight: bold;
+  border-bottom: 1px solid black;
+}
+  
+/* Footer */
+
+.footer{
+  color: #120B0C;
+  height: 100px;
+  font-weight: bold;
+  border-top: 1px solid black;
+}
+
+/* Search */
+
+.search{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
