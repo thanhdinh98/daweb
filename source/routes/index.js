@@ -1,16 +1,11 @@
-import authRoutes from './auth';
-import movieRoutes from './movie';
+import appRoutes from './app';
 
 export default () => {
   const { pathname } = location;
   const basePath = pathname.split('/')[1];
 
   switch (basePath) {
-    case 'auth': {
-      authRoutes('/auth', pathname);
-      break;
-    }
     default:
-      movieRoutes('/', pathname);
+      appRoutes('/', pathname);
   }
 };

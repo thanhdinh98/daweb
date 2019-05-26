@@ -25,20 +25,24 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.13.0",
     "lint-staged": "^8.1.7",
+    "postcss-modules": "^1.4.1",
     "pre-commit": "^1.2.2"
   },
   "pre-commit": [
     "lint"
   ],
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.8.2",
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
+    "bootstrap": "^4.3.1",
     "connect-redis": "^3.4.1",
     "express": "^4.17.0",
     "express-history-api-fallback": "^2.2.1",
     "express-promise-router": "^3.0.3",
     "express-session": "^1.16.1",
     "http-proxy-middleware": "^0.19.1",
+    "lodash": "^4.17.11",
     "nodemon": "^1.19.0",
     "parcel-bundler": "^1.12.3",
     "pg": "^7.11.0",
