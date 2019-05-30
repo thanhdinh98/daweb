@@ -1,7 +1,6 @@
-const bcrypt = require('bcrypt');
-const users = require('../models/users');
+const users = require('../models/user.model');
 
-const saltRound = 10;
+// const saltRound = 10;
 
 const getRegister = (req, res) => {
   // eslint-disable-next-line prefer-destructuring
@@ -35,15 +34,16 @@ const postRegister = async (req, res) => {
       },
     });
 
-    if (!user) {
-      await bcrypt.hash(inputConfirmPassword, saltRound).then(async (hash) => {
-        await users.create({
-          email: inputEmail,
-          password: hash,
-        });
-      });
-      return res.redirect(`./alert=${alert}`);
-    }
+    // if (!user) {
+    //   await bcrypt.hash(inputConfirmPassword, saltRound).then(async (hash) => {
+    //     await users.create({
+    //       email: inputEmail,
+    //       password: hash,
+    //     });
+    //   });
+    //   return res.redirect(`./alert=${alert}`);
+    // }
+    res.send(user);
   }
   return res.redirect('./alert=Your account is in use!');
 };
