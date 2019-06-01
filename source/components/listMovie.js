@@ -29,7 +29,7 @@ const ListMovies = (movies) => {
 
   return `
     <div>
-      <h4>Movie Selection</h4>
+      <h4 class="list-movie">Movie Selection</h4>
       <div id="slider" class="carousel slide">
         <div class="carousel-inner">
           ${listSlides.join('')}
