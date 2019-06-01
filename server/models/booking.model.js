@@ -11,21 +11,17 @@ const Booking = db.define('Booking', {
   showtimeId: {
     type: Sequelize.INTEGER,
     allowNull: false,
-
   },
   userId: {
     type: Sequelize.INTEGER,
     allowNull: false,
-
   },
   timeBooking: {
     type: Sequelize.DATE,
-
   },
   totalPrice: {
     type: Sequelize.INTEGER,
     allowNull: false,
-
   },
 });
 
