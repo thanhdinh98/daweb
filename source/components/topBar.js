@@ -7,7 +7,8 @@ const NavBar = () => `
       <a href='#' class='active'><li>Home</li></a>
     </div>
     <div class='col-4 right-panel nav justify-content-end align-items-center'>
-      <a href='#'>Sign In</a>
+      <a class="sign-in"  href='/login'>Sign In</a>
+      <a class="sign-in"  href='/register'>Register</a>
       <div class='hotline text-center'>
         <h5 class='phone'>086 981 2198</h5>
         <div class='text'>

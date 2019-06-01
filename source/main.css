@@ -10,7 +10,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .nav a{
-  color: #120B0C;
+  color:white;
   text-decoration: none;
   font-size: 14px;
 }
@@ -82,7 +82,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .hotline{
-  background-color: #3654BB;
+	background-color:rgba(0, 0, 0, 0.5);
   color: white;
   width: 50%;
   height: 60px;
@@ -100,24 +100,216 @@ h1, h2, h3, h4, h5, h6{
 .logo{
   font-weight: bold;
   font-size: 20px;
+  color: white;
 }
 
 .nav .active{
   font-weight: bold;
   border-bottom: 1px solid black;
+  color: white;
 }
   
 /* Footer */
 
 .footer{
-  color: #120B0C;
-  height: 100px;
+  color: white;
   font-weight: bold;
-  border-top: 1px solid black;
+	border-top: 1px solid white;
+	padding: 20px;
+	margin-top: 20px;
+	background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* Search */
 
 .search{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.login{
+	width: 40%;
+	margin: auto;
+	color: white;
+	background-color: rgba(0,0,0,0.4);
+	padding: 50px;
+	padding-top: 100px;
+	height: 90%;
+}
+
+.title-login{
+	padding-bottom: 20px;
+	font-size: 30px;
+	display: table;
+	margin: 0 auto; 
+}
+
+.formInput{
+	background-color: rgba(125,125,125,0.4);
+	color: white;
+	border: 0;
+	border-radius: 5px;
+	width: 100%;
+	padding: 10px;
+}
+
+#div-linkTo{
+	padding-top: 10px;
+}
+
+#div-linkTo a{
+	text-decoration: none;
+	color: white;
+}
+
+#login-container{
+	padding-top: 50px;
+}
+
+#loginButton{
+	display: table;
+	margin: 0 auto;
+	width: 100%;
+	margin-top: 20px;
+}
+
+html, body{
+	height: 100%;
+}
+body{
+	background:url("empty-cinema.jpg");
+	background-size: cover;	
+	overflow-x: hidden;
+}
+
+.register{
+	width: 40%;
+	margin: auto;
+	color: white;
+	background-color: rgba(0,0,0,0.4);
+	padding: 50px;
+	/*padding-top: 100px;*/
+	height: 90%;
+}
+
+.title-register{
+	padding-bottom: 20px;
+	font-size: 30px;
+	display: table;
+	margin: 0 auto; 
+}
+
+.formInput{
+	background-color: rgba(125,125,125,0.4);
+	color: white;
+	border: 0;
+	border-radius: 5px;
+	width: 100%;
+	padding: 10px;
+}
+
+#div-linkTo{
+	padding-top: 10px;
+}
+
+#div-linkTo a{
+	text-decoration: none;
+	color: white;
+}
+
+#register-container{
+	padding-top: 50px;
+}
+
+
+#registerButton{
+	display: table;
+	margin: 0 auto;
+	width: 100%;
+	margin-top: 20px;
+}
+
+.forgot-password{
+	width: 40%;
+	margin: auto;
+	color: white;
+	background-color: rgba(0,0,0,0.4);
+	padding: 50px;
+	padding-top: 100px;
+	height: 70%;
+}
+
+.title-forgot-password{
+	padding-bottom: 20px;
+	font-size: 30px;
+	display: table;
+	margin: 0 auto; 
+}
+
+.formInput{
+	background-color: rgba(125,125,125,0.4);
+	color: white;
+	border: 0;
+	border-radius: 5px;
+	width: 100%;
+	padding: 10px;
+}
+
+#div-linkTo{
+	padding-top: 10px;
+}
+
+#div-linkTo a{
+	text-decoration: none;
+	color: white;
+}
+
+#forgot-password-container{
+	padding-top: 100px;
+}
+
+
+#forgot-passwordButton{
+	display: table;
+	margin: 0 auto;
+	width: 100%;
+	margin-top: 20px;
+}
+.list-movie{
+  color: white;
+}
+.sign-in{
+	color: white;
+	font-weight: bold;
+}
+
+.href{
+	color: white;
+	padding: 10px;
+	margin-top: 20px;
+	font-size: 22px;
+}
+
+.info{
+	padding: 5%;
+}
+
+.btn{
+	margin-top: 10px;
+	background-color: white;
+	color: black;
+}
+
+.btn:hover{
+	background-color:black;
+	color:white;
+}
+
+.top-bar{
+	margin-bottom: 20px;
+	border: 1px;
+	border-radius: 5px;
+}
+
+.hotline{
+	border-radius: 5px;
 }

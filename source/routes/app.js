@@ -1,5 +1,7 @@
 import HomePage from '../components/pages/HomePage';
 import TopBar from '../components/topBar';
+import AuthForm from '../components/authForm';
+import Footer from '../components/footer';
 
 import movieControllers from '../controllers/movie';
 
@@ -7,11 +9,8 @@ import movieControllers from '../controllers/movie';
 
 const App = data => `
     <div>
-      <div class='container top-bar'>${TopBar()}</div>
-      <div class='container'>${HomePage(data)}</div>
-      <div class='container footer d-flex justify-content-center align-items-center mt-5'>        
-        <span>CodeGym</span>
-      </div>
+      <div class='top-bar'>${TopBar()}</div>
+      <div>${HomePage(data)}</div>
     </div>
   `;
 
@@ -79,19 +78,27 @@ export default (basePath, path) => {
       };
 
       document.querySelector('#main').innerHTML = App(data);
+      document.querySelector('#footer').innerHTML = Footer();
       movieControllers.afterRender();
+
       break;
     }
     case '/login': {
-      document.querySelector('#main').innerHTML = 'Login';
+      document.querySelector('#main').innerHTML = AuthForm().login;
       break;
     }
     case '/register': {
-      document.querySelector('#main').innerHTML = 'Register';
+      document.querySelector('#main').innerHTML = AuthForm().register;
+      break;
+    }
+    case '/forgot': {
+      document.querySelector('#main').innerHTML = AuthForm().forgot;
       break;
     }
     case '/logout': {
-      document.querySelector('#main').innerHTML = 'Logout';
+      if (true) {
+        location.href = '/';
+      }
       break;
     }
     default:
