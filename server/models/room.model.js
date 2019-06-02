@@ -1,36 +1,35 @@
-const Sequelize = require('sequelize');
-const db = require('./db');
+module.exports = (sequelize, Datatypes) => {
+  const Room = sequelize.define('Room', {
+    roomId: {
+      type: Datatypes.INTEGER,
+      primaryKey: true,
+      default: sequelize.fn('uuid_generate_v4'),
+    },
 
-const Cinema = require('./cinema.model');
+    cinemaId: {
+      type: Datatypes.INTEGER,
+      allowNull: false,
+    },
+    name: {
+      type: Datatypes.STRING,
+      allowNull: false,
+    },
+    type: {
+      type: Datatypes.STRING,
+    },
+    rowSize: {
+      type: Datatypes.INTEGER,
+    },
+    columnSize: {
+      type: Datatypes.INTEGER,
+    },
+  });
 
-const Room = db.define('Room', {
-  roomId: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-    autoIncrement: true,
-  },
+  Room.associate = (models) => {
+    Room.belongsTo(models.Cinema, {
+      foreignKey: 'cinemaId',
+    });
+  };
 
-  cinemaId: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
-  name: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  type: {
-    type: Sequelize.STRING,
-  },
-  rowSize: {
-    type: Sequelize.INTEGER,
-  },
-  columnSize: {
-    type: Sequelize.INTEGER,
-  },
-});
-
-Room.belongsTo(Cinema, {
-  foreignKey: 'cinemaId',
-});
-
-module.exports = Room;
+  return Room;
+};

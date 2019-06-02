@@ -1,32 +1,27 @@
-const Sequelize = require('sequelize');
-const db = require('./db');
-
-const Ticket = db.define('Ticket', {
-  ticketId: {
-    type: Sequelize.UUID,
-    primaryKey: true,
-    autoIncrement: true,
-  },
-  bookingId: {
-    type: Sequelize.UUID,
-    allowNull: false,
-    unique: true,
-  },
-  rowOfSeatId: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
-  colOfSeatId: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
-  price: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
-});
-
-// const Booking = require('./booking.model');
-// Ticket.belongsTo(Booking, {foreignKey: 'bookingId', targetKey: 'bookingId'});
-
-module.exports = Ticket;
+module.exports = (sequelize, Datatypes) => {
+  const Ticket = sequelize.define('Ticket', {
+    ticketId: {
+      type: Datatypes.INTEGER,
+      primaryKey: true,
+      default: sequelize.fn('uuid_generate_v4'),
+    },
+    bookingId: {
+      type: Datatypes.INTEGER,
+      allowNull: false,
+      unique: true,
+    },
+    rowOfSeatId: {
+      type: Datatypes.INTEGER,
+      allowNull: false,
+    },
+    colOfSeatId: {
+      type: Datatypes.INTEGER,
+      allowNull: false,
+    },
+    price: {
+      type: Datatypes.INTEGER,
+      allowNull: false,
+    },
+  });
+  return Ticket;
+};

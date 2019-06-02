@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-const users = require('../../models/user.model');
+const models = require('../../models');
 
 const postLogin = async (req, res) => {
   let alert = 'Login successfull.';
@@ -10,7 +10,7 @@ const postLogin = async (req, res) => {
     res.send({ error: true, message: alert });
   }
 
-  const user = await users.findOne({
+  const user = await models.User.findOne({
     where: {
       email: inputEmail,
     },

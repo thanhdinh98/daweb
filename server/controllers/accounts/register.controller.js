@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-const users = require('../../models/user.model');
+const models = require('../../models');
 
 const saltRound = 10;
 
@@ -25,7 +25,7 @@ const postRegister = async (req, res) => {
   }
 
   if (inputConfirmPassword === inputPassword) {
-    const user = await users.findOne({
+    const user = await models.User.findOne({
       where: {
         email: inputEmail,
       },
@@ -33,7 +33,7 @@ const postRegister = async (req, res) => {
 
     if (!user) {
       await bcrypt.hash(inputConfirmPassword, saltRound).then(async (hash) => {
-        await users.create({
+        await models.User.create({
           email: inputEmail,
           password: hash,
           name,

@@ -2,7 +2,7 @@ const express = require('express');
 const session = require('express-session');
 const cors = require('cors');
 // const bodyParser = require('body-parser');
-const db = require('./models/db');
+const models = require('./models');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -28,6 +28,6 @@ app.use(session({
 // using route
 app.use('/api/account', require('./routes/account.route'));
 
-db.sync().then(() => {
+models.sequelize.sync().then(() => {
   app.listen(port);
 });

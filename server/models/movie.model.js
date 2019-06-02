@@ -1,25 +1,23 @@
-const Sequelize = require('sequelize');
-const db = require('./db');
+module.exports = (sequelize, Datatypes) => {
+  const Movie = sequelize.define('Movie', {
+    movieId: {
+      type: Datatypes.INTEGER,
+      primaryKey: true,
+      default: sequelize.fn('uuid_generate_v4'),
+    },
+    name: {
+      type: Datatypes.STRING,
+    },
+    release: {
+      type: Datatypes.DATE,
+    },
+    poster: {
+      type: Datatypes.STRING,
+    },
+    duration: {
+      type: Datatypes.DATE,
+    },
+  });
 
-const Movie = db.define('Movie', {
-  movieId: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-    autoIncrement: true,
-  },
-  name: {
-    type: Sequelize.STRING,
-  },
-  release: {
-    type: Sequelize.DATE,
-  },
-  poster: {
-    type: Sequelize.STRING,
-  },
-  duration: {
-    type: Sequelize.DATE,
-  },
-});
-
-
-module.exports = Movie;
+  return Movie;
+};

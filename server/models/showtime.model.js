@@ -1,41 +1,45 @@
-const Sequelize = require('sequelize');
-const db = require('./db');
+module.exports = (sequelize, Datatypes) => {
+  const Showtime = sequelize.define('Showtime', {
+    showtimeId: {
+      type: Datatypes.INTEGER,
+      primaryKey: true,
+      default: sequelize.fn('uuid_generate_v4'),
+    },
+    roomId: {
+      type: Datatypes.INTEGER,
+      allowNull: false,
+    },
+    movieId: {
+      type: Datatypes.INTEGER,
+      allowNull: false,
+    },
+    price: {
+      type: Datatypes.INTEGER,
+    },
+    startTime: {
+      type: Datatypes.DATE,
+      allowNull: false,
+    },
+    endTime: {
+      type: Datatypes.DATE,
+      allowNull: false,
+    },
+  });
 
+  Showtime.associate = (models) => {
+    Showtime.belongsTo(models.Movie, {
+      foreignKey: 'movieId',
+      targetKey: 'movieId',
+    });
+    Showtime.belongsTo(models.Room, {
+      foreignKey: 'roomId',
+      targetKey: 'roomId',
+    });
+    Showtime.hasMany(models.Booking, {
+      foreignKey: 'showtimeId',
+      targetKey: 'showtimeId',
+    });
+  };
 
-const Movie = require('./movie.model');
-const Room = require('./room.model');
-const Booking = require('./booking.model');
-
-
-const Showtime = db.define('Showtime', {
-  showtimeId: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-    autoIncrement: false,
-  },
-  roomId: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
-  movieId: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
-  price: {
-    type: Sequelize.INTEGER,
-  },
-  startTime: {
-    type: Sequelize.DATE,
-    allowNull: false,
-  },
-  endTime: {
-    type: Sequelize.DATE,
-    allowNull: false,
-  },
-});
-
-Showtime.belongsTo(Movie, { foreignKey: 'movieId', targetKey: 'movieId' });
-Showtime.belongsTo(Room, { foreignKey: 'roomId', targetKey: 'roomId' });
-Showtime.hasMany(Booking, { foreignKey: 'showtimeId', targetKey: 'showtimeId' });
-
-module.exports = Showtime;
+  return Showtime;
+};
