@@ -1,7 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 const cors = require('cors');
-// const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 const models = require('./models');
 
 const app = express();
@@ -15,6 +15,8 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(session({
   secret: 'keyboard cat',

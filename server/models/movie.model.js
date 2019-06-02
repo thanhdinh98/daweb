@@ -3,7 +3,8 @@ module.exports = (sequelize, Datatypes) => {
     movieId: {
       type: Datatypes.INTEGER,
       primaryKey: true,
-      default: sequelize.fn('uuid_generate_v4'),
+      allowNull: false,
+      autoIncrement: true,
     },
     name: {
       type: Datatypes.STRING,

@@ -2,8 +2,9 @@ module.exports = (sequelize, Datatypes) => {
   const Booking = sequelize.define('Booking', {
     bookingId: {
       type: Datatypes.INTEGER,
-      primary: true,
-      default: sequelize.fn('uuid_generate_v4'),
+      primaryKey: true,
+      allowNull: false,
+      autoIncrement: true,
     },
     showtimeId: {
       type: Datatypes.INTEGER,
