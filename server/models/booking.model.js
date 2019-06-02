@@ -1,32 +1,33 @@
-const Sequelize = require('sequelize');
-const db = require('./db');
+module.exports = (sequelize, Datatypes) => {
+  const Booking = sequelize.define('Booking', {
+    bookingId: {
+      type: Datatypes.INTEGER,
+      primary: true,
+      default: sequelize.fn('uuid_generate_v4'),
+    },
+    showtimeId: {
+      type: Datatypes.INTEGER,
+      allowNull: false,
+    },
+    userId: {
+      type: Datatypes.INTEGER,
+      allowNull: false,
+    },
+    timeBooking: {
+      type: Datatypes.DATE,
+    },
+    totalPrice: {
+      type: Datatypes.INTEGER,
+      allowNull: false,
+    },
+  });
 
+  Booking.associate = (models) => {
+    Booking.hasMany(models.Ticket, {
+      foreignKey: 'bookingId',
+      targetKey: 'bookingId',
+    });
+  };
 
-const Booking = db.define('Booking', {
-  bookingId: {
-    type: Sequelize.UUID,
-    primary: true,
-    autoIncreament: true,
-  },
-  showtimeId: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
-  userId: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
-  timeBooking: {
-    type: Sequelize.DATE,
-  },
-  totalPrice: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
-});
-
-const Ticket = require('./ticket.model');
-
-Booking.hasMany(Ticket, { foreignKey: 'bookingId', targetKey: 'bookingId' });
-
-module.exports = Booking;
+  return Booking;
+};
