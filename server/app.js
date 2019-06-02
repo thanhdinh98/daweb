@@ -25,8 +25,6 @@ app.use(session({
   cookie: { maxAge: 1000 * 60 * 60 * 24 },
 }));
 
-// Routes
-
 // using route
 app.use('/api/account', require('./routes/account.route'));
 
