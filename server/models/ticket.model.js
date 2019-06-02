@@ -3,7 +3,8 @@ module.exports = (sequelize, Datatypes) => {
     ticketId: {
       type: Datatypes.INTEGER,
       primaryKey: true,
-      default: sequelize.fn('uuid_generate_v4'),
+      allowNull: false,
+      autoIncrement: true,
     },
     bookingId: {
       type: Datatypes.INTEGER,
