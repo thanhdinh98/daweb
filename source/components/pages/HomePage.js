@@ -1,5 +1,5 @@
-import ListMovies from '../listMovie';
-import image from '../test.jpg';
+import ListMovies from '../Movie/listMovie';
+import image from '../Movie/test.jpg';
 
 const HomePage = (data) => {
   const { hotMovie } = data;
