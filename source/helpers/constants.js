@@ -1,5 +1,9 @@
 const END_POINTS = {
-  GET_LIST_MOVIES: '/get-list-movies',
+  ACCOUNT: {
+    LOGIN: '/account/login',
+    REGISTER: '/account/register',
+    LOGOUT: '/account/logout',
+  },
 };
 
 export {
