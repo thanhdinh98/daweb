@@ -9,21 +9,6 @@ const postRegister = async (req, res) => {
     inputEmail, inputPassword, inputConfirmPassword, name, phoneNumber, permission,
   } = req.body;
 
-  if (!inputEmail) {
-    alert = 'Please enter your email!';
-    return res.send({ error: true, message: alert });
-  }
-
-  if (!inputPassword || !inputConfirmPassword) {
-    alert = 'Please enter your password and confirm password carefully.';
-    return res.send({ error: true, message: alert });
-  }
-
-  if (inputPassword !== inputConfirmPassword) {
-    alert = "Your password and confirm password didn't match.";
-    return res.send({ error: true, message: alert });
-  }
-
   if (inputConfirmPassword === inputPassword) {
     const user = await models.User.findOne({
       where: {
