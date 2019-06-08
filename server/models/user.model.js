@@ -3,7 +3,6 @@ module.exports = (sequelize, Datatypes) => {
     userId: {
       type: Datatypes.INTEGER,
       primaryKey: true,
-      allowNull: false,
       autoIncrement: true,
     },
     email: {
@@ -26,7 +25,9 @@ module.exports = (sequelize, Datatypes) => {
       type: Datatypes.INTEGER,
       allowNull: false,
     },
+    token: {
+      type: Datatypes.STRING,
+    },
   });
-
   return User;
 };
