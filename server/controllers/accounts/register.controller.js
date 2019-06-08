@@ -1,10 +1,10 @@
 const bcrypt = require('bcryptjs');
-const User = require('../../models/user.model');
+const models = require('../../models');
 const sendEmail = require('./sendemail.controller');
 
 const saltRound = 10;
 
-const postRegister = async (req, res) => {
+const register = async (req, res) => {
   let alert = 'Thank you for your register!';
   const {
     inputEmail, inputPassword, inputConfirmPassword, name, phoneNumber,
@@ -26,7 +26,7 @@ const postRegister = async (req, res) => {
   }
 
   if (inputConfirmPassword === inputPassword) {
-    const user = await User.findOne({
+    const user = await models.User.findOne({
       where: {
         email: inputEmail,
       },
@@ -35,12 +35,12 @@ const postRegister = async (req, res) => {
     let hashPassword;
     if (!user) {
       await bcrypt.hash(inputConfirmPassword, saltRound).then(async (hash) => {
-        await User.create({
+        await models.User.create({
           email: inputEmail,
           password: hash,
           name,
           phoneNumber,
-          permission: 0,
+          permission: -1,
           token: Math.random().toString(36).substring(2),
         });
         hashPassword = hash;
@@ -51,7 +51,7 @@ const postRegister = async (req, res) => {
       let content = `${domain}verify?email=${inputEmail}&password=${hashPassword}`;
       content = `Click this link to verify account: ${content}`;
 
-      await sendEmail(inputEmail, 'CINEMA - Verify Account', content, '');
+      await sendEmail(inputEmail, "CodeGym's CINEMA - Account Verification", content, '');
       return res.send({ error: false, message: alert });
     }
   }
@@ -59,4 +59,4 @@ const postRegister = async (req, res) => {
   return res.send({ error: true, message: alert });
 };
 
-module.exports = { postRegister };
+module.exports = { register };

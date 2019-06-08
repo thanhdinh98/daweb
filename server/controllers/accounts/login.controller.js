@@ -1,8 +1,9 @@
 const bcrypt = require('bcryptjs');
 const models = require('../../models');
 
-const postLogin = async (req, res) => {
-  let alert = 'Login successfull.';
+const OP = models.Sequelize.Op;
+const login = async (req, res) => {
+  let alert = 'Login successfully.';
   const { inputEmail, inputPassword } = req.body;
 
   if (!inputEmail || !inputPassword) {
@@ -14,6 +15,9 @@ const postLogin = async (req, res) => {
   const user = await models.User.findOne({
     where: {
       email: inputEmail,
+      permission: {
+        [OP.ne]: -1,
+      },
     },
   });
 
@@ -31,4 +35,4 @@ const postLogin = async (req, res) => {
   res.send({ error: true, message: alert });
 };
 
-module.exports = { postLogin };
+module.exports = { login };

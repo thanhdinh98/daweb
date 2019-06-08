@@ -1,9 +1,9 @@
-const Users = require('../../models/user.model').default;
+const models = require('../../models');
 
 const verifyEmail = async (req, res) => {
   const { email, password } = req.query;
 
-  const user = await Users.findOne({
+  const user = await models.User.findOne({
     where: {
       email,
       password,
@@ -16,9 +16,9 @@ const verifyEmail = async (req, res) => {
       permission: 1,
       token,
     });
-    res.send({ error: false, message: 'Verify email successfull.' });
+    return res.send({ error: false, message: 'Verify email successfull.' });
   }
-  res.send({ error: false, message: 'Verify email fail.' });
+  return res.send({ error: false, message: 'Verify email fail.' });
 };
 
 module.exports = { verifyEmail };
