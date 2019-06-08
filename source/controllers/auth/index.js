@@ -42,7 +42,9 @@ const register = () => {
         },
       })
         .then((data) => {
-          console.log(data);
+          if (data.error === false) {
+            location.href = '/login';
+          }
         })
         .catch((err) => {
           displayToast(err, { delay: 3000 });

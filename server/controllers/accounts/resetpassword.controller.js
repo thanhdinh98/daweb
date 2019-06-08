@@ -17,10 +17,10 @@ const sendLinkResetPassword = async (req, res) => {
   }
 
   const domain = process.env.DOMAIN || 'http:localhost:5000/';
-  let content = `${domain}reset?email=${email}&token=${user.token}`;
+  let content = `${domain}/api/account/reset?email=${email}&token=${user.token}`;
   content = `Click this link to reset password: ${content}`;
 
-  await sendEmail(email, 'CINEMA - Reset Password', content, '');
+  await sendEmail(email, "CodeGym's CINEMA - Reset Password", content, '');
   return res.send({ error: false, message: 'Please check email to reset password.' });
 };
 
@@ -36,7 +36,7 @@ const resetPassword = async (req, res) => {
     return res.send({ error: true, message: 'Please use link in your email.' });
   }
   if (user.token !== token) {
-    return res.send({ error: true, message: 'Token in link was used or wrong.' });
+    return res.send({ error: true, message: 'Token in link has been used or wrong.' });
   }
 
   const { password } = req.body;
@@ -48,8 +48,7 @@ const resetPassword = async (req, res) => {
     });
   });
 
-  return res.send({ error: false, message: 'Change password successfully!' });
+  return res.send({ error: false, message: 'Your password has been changed successfully!' });
 };
-
 
 module.exports = { sendLinkResetPassword, resetPassword };

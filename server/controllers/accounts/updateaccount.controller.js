@@ -7,8 +7,8 @@ const updateInfoUser = async (req, res) => {
   const {
     userId, password, name, phoneNumber,
   } = req.body;
-  if (password === undefined && name === undefined && phoneNumber === undefined) {
-    res.send({ error: true, message: "Don't have any data change!" });
+  if (!password && !name && !phoneNumber) {
+    res.send({ error: true, message: 'Please fill out requirement fields' });
   }
 
   const user = await User.findOne({
@@ -20,7 +20,7 @@ const updateInfoUser = async (req, res) => {
   const dataUpdate = {};
 
   if (password) {
-    await bcrypt.hash(password, saltRound).then(async (hash) => {
+    await bcrypt.hash(password, saltRound).then((hash) => {
       dataUpdate.password = hash;
     });
   }
