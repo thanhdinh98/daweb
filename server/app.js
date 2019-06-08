@@ -27,7 +27,6 @@ app.use(session({
 
 // using route
 app.use('/api/account', require('./routes/account.route'));
-app.use('/api/movie', require('./routes/movie.route'));
 
 models.sequelize.sync().then(() => {
   app.listen(port);
