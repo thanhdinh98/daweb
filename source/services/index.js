@@ -1,25 +1,27 @@
 import * as _ from 'lodash';
 import { addQueries } from '../helpers';
 
-const send = async (url, data) => {
+const send = async (url, data = null) => {
   const api = process.env.API || '/api';
 
   let cloneUrl = url;
   let options = {
     mode: 'cors',
-    method: _.isEqual(data.type, 'json') ? 'post' : 'get',
+    method: !_.isNull(data) && _.isEqual(data.type, 'json') ? 'post' : 'get',
   };
 
-  if (!_.isEqual(data.type, 'json')) {
-    cloneUrl += addQueries(data.body);
-  } else {
-    options = {
-      ...options,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data.body),
-    };
+  if (!_.isNull(data)) {
+    if (!_.isEqual(data.type, 'json')) {
+      cloneUrl += addQueries(data.body);
+    } else {
+      options = {
+        ...options,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data.body),
+      };
+    }
   }
 
   try {

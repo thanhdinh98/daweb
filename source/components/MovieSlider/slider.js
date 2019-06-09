@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 import Movie from './movie';
 
-const SlideMovies = (listMovies, notFirstList = true) => `
+const Slider = (listMovies, notFirstList = true) => `
     <div class="carousel-item ${!notFirstList ? 'active' : ''}">
       <ul class='nav list-item justify-content-around'>
         ${listMovies}
@@ -17,14 +17,14 @@ const ListMovies = (movies) => {
   for (const [index, movie] of movies.entries()) {
     listMovies += Movie(movie);
     if ((index - firstMovieIndex) === 3) {
-      listSlides.push(SlideMovies(listMovies, firstMovieIndex));
+      listSlides.push(Slider(listMovies, firstMovieIndex));
       listMovies = '';
       firstMovieIndex = index + 1;
     }
   }
 
   if (!_.isEmpty(listMovies)) {
-    listSlides.push(SlideMovies(listMovies));
+    listSlides.push(Slider(listMovies));
   }
 
   return `

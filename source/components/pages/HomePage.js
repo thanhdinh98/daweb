@@ -1,5 +1,5 @@
-import ListMovies from '../Movie/listMovie';
-import image from '../Movie/test.jpg';
+import SliderMovies from '../MovieSlider/slider';
+import image from '../MovieSlider/test.jpg';
 
 const HomePage = (data) => {
   const { hotMovie } = data;
@@ -20,7 +20,7 @@ const HomePage = (data) => {
             <div>${hotMovie.description}</div>
           </div>
         </div>
-        ${ListMovies(data.movies)}
+        ${SliderMovies(data.movies)}
       </div>
     </div>
   `;

@@ -4,6 +4,16 @@ const END_POINTS = {
     REGISTER: '/account/register',
     LOGOUT: '/account/logout',
   },
+
+  CINEMA: {
+    GET_ALL: '/cinema',
+  },
+
+  BOOKING: {
+    DATE_ON_CIMENA: '/cinema',
+    SHOW_TIME: '/cinema',
+    SEATS: '/cinema',
+  },
 };
 
 export {

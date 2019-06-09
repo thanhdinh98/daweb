@@ -587,3 +587,289 @@ body{
 	top: -30px;
 	font-weight: bold;
 }
+
+.ticket-page{
+	margin-top: 30px;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	height: auto;
+	color: white;
+	padding-bottom: 20px;
+	border: none;
+	border-radius: 20px;
+}
+
+.ticket-title{
+	background-color: rgba(0, 0, 0, 0.4);
+	width: 100%;
+	height: auto;
+	border: none;
+	border-radius: 20px;
+	padding: 20px;
+	font-size: 30px;
+	text-align: center;
+	font-weight: bold;
+	margin-bottom: 40px;
+}
+
+.ticket{
+	background-color:rgba(255,140,0, 0.8);
+	height: 380px;
+	width: 80%;
+	margin: auto;
+	border: none;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	/*padding-top: 50px;*/
+}
+
+.Welcome{
+	margin: 5px;
+	/*padding: 50px;*/
+	/*padding-top: 50px;*/
+	/*text-align: center;*/
+}
+
+.tickets-body{
+	background-color:rgba(255,255,255, 1);
+	height: 250px;
+	width: 90%;
+	margin: auto;
+	/*margin-top: 50px;*/
+	border: none;
+	border-radius: 10px;
+	color: black;
+}
+
+.info-name{
+	padding-left: 100px;
+}
+
+.ticket-content{
+	font-weight: bold;	
+}
+
+.ticket-info{
+	margin-top: 5px;
+}
+
+.company{
+	font-size: 22px;
+	font-weight: bold;
+	padding-left: 100px;
+	margin-top: -20px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.qr_code{
+	width: 150px;
+	height: 150px;
+	margin: auto;
+	margin-top: 13%; 
+}
+
+.update-info-user-page{
+	margin-top: 50px;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	height: auto;
+	color: white;
+	padding-bottom: 20px;
+	border: none;
+	border-radius: 20px;
+}
+
+.update-info-user-title{
+	background-color: rgba(0, 0, 0, 0.4);
+	width: 100%;
+	height: auto;
+	border: none;
+	border-radius: 20px;
+	padding: 20px;
+	font-size: 30px;
+	text-align: center;
+	font-weight: bold;
+	margin-bottom: 40px;
+}
+
+.update-info-content{
+	width: 90%;
+	margin: auto;
+	background-color: rgba(0, 0, 0, 0.4);
+	padding: 40px;
+	border: none;
+	border-radius: 10px;
+}
+
+.formUpdate{
+	background-color: rgba(0, 0, 0, 0.2);
+	color: white;
+	border: 1px solid white;
+	border-radius: 5px;
+	width: 100%;
+	padding: 10px;
+}
+
+.Update-title{
+	padding-bottom: 20px;
+	font-size: 20px;
+	display: table;
+}
+
+.btn-Update-info{
+	background-color: rgba(0, 191, 255, 0.5);
+	color: white;
+	padding: 10px;
+	border: none;
+	border-radius: 10px;
+	width: 40%;
+}
+
+.btn-Update-info:hover{
+	background-color: rgba(125, 125, 155, 0.5);
+}
+
+.cinema-management-page{
+	margin-top: 30px;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	height: auto;
+	color: white;
+	padding-bottom: 20px;
+	border: none;
+	border-radius: 20px;
+}
+
+.cinema-management-title{
+	font-size: 30px;
+	font-weight: bold;
+	padding-top: 40px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+.revenue-page{
+	margin-top: 50px;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	height: auto;
+	color: white;
+	padding-bottom: 20px;
+	border: none;
+	border-radius: 20px;
+}
+
+.revenue-title{
+	font-size: 30px;
+	font-weight: bold;
+	background-color: rgba(0, 0, 0, 0.5);
+	padding-top: 40px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+.btn-calculator{
+	background-color: rgba(0, 128, 0, 0.6);
+	padding: 10px;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+.btn-calculator:hover{
+	background-color: rgba(0, 0, 0, 0.6);
+	transition: 0.5s;
+}
+
+.form-revenue{
+	color: white;
+	background-color: black;
+	border: none;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+.form-revenue option{
+	color: white;
+	background-color: black;
+}
+
+.title-table{
+	color: white;
+	background-color: rgba(0, 0, 0, 0.6);
+	padding: 5px;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.cluster-cinema-title-table{
+	color: white;
+	background-color: rgba(0, 0, 0, 0.6);
+	padding: 10px;
+	font-weight: bold;
+	font-size: 18px;
+	border: none;
+	border-radius: 5px;
+}
+
+.cluster-cinema-title{
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.cluster-cinema{
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.btn-edit{
+	color: white;
+	background-color: rgba(0, 128, 0, 0.6);
+	padding: 5px;
+	width: 90px;
+	border: none;
+	border-radius: 10px;
+}
+
+.btn-remove{
+	color: white;
+	background-color: rgba(225, 0, 0, 0.6);
+	padding: 5px;
+	width: 90px;
+	border: none;
+	border-radius: 10px;
+}
+
+.btn-edit:hover, .btn-remove:hover{
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.update-cluster-cinema{
+	background-color: rgba(0, 0, 0, 0.3);
+	margin-top: 20px;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.update-cluster-cinema-body{
+	width: 90%;
+	margin: auto;
+}
+
+.btn-Update-cluster-cinema{
+	background-color: rgba(0, 191, 255, 0.5);
+	color: white;
+	padding: 10px;
+	border: none;
+	border-radius: 10px;
+	width: 20%;
+	margin-top: 20px;
+}
+
+.update-cluster-cinema-title{
+	font-size: 20px;
+	font-weight: bold;
+	padding: 20px;
+	width: 100%;
+}

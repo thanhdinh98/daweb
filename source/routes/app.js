@@ -1,25 +1,18 @@
 import HomePage from '../components/pages/HomePage';
 import AuthPage from '../components/pages/AuthPage';
-import TopBar from '../components/topBar';
-import Footer from '../components/footer';
 
 import movieControllers from '../controllers/movie';
 import authControllers from '../controllers/auth/index';
 
 // const { getListMovies } = movieControllers.beforeRender();
 
-const App = data => `
-    <div>
-      <div class='top-bar'>${TopBar()}</div>
-      <div>${HomePage(data)}</div>
-      <div>${Footer()}</div>
-    </div>
-  `;
 
 export default (basePath, path) => {
   switch (path) {
     case basePath: {
-      document.querySelector('#main').innerHTML = App();
+      const data = {};
+
+      document.querySelector('#main').innerHTML = HomePage(data);
       movieControllers.afterRender();
 
       break;
