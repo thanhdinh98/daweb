@@ -1,21 +1,19 @@
 module.exports = (sequelize, Datatypes) => {
   const Ticket = sequelize.define('Ticket', {
-    ticketId: {
-      type: Datatypes.INTEGER,
+    ticketID: {
+      type: Datatypes.UUID,
       primaryKey: true,
-      allowNull: false,
-      autoIncrement: true,
+      defaultValue: Datatypes.UUIDV4,
     },
-    bookingId: {
+    bookingID: {
+      type: Datatypes.UUID,
+      allowNull: false,
+    },
+    rowOfSeatID: {
       type: Datatypes.INTEGER,
       allowNull: false,
-      unique: true,
     },
-    rowOfSeatId: {
-      type: Datatypes.INTEGER,
-      allowNull: false,
-    },
-    colOfSeatId: {
+    colOfSeatID: {
       type: Datatypes.INTEGER,
       allowNull: false,
     },

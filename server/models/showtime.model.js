@@ -1,16 +1,15 @@
 module.exports = (sequelize, Datatypes) => {
   const Showtime = sequelize.define('Showtime', {
-    showtimeId: {
-      type: Datatypes.INTEGER,
+    showtimeID: {
+      type: Datatypes.UUID,
       primaryKey: true,
-      allowNull: false,
-      autoIncrement: true,
+      defaultValue: Datatypes.UUIDV4,
     },
-    roomId: {
+    roomID: {
       type: Datatypes.INTEGER,
       allowNull: false,
     },
-    movieId: {
+    movieID: {
       type: Datatypes.INTEGER,
       allowNull: false,
     },
@@ -29,16 +28,16 @@ module.exports = (sequelize, Datatypes) => {
 
   Showtime.associate = (models) => {
     Showtime.belongsTo(models.Movie, {
-      foreignKey: 'movieId',
-      targetKey: 'movieId',
+      foreignKey: 'movieID',
+      targetKey: 'movieID',
     });
     Showtime.belongsTo(models.Room, {
-      foreignKey: 'roomId',
-      targetKey: 'roomId',
+      foreignKey: 'roomID',
+      targetKey: 'roomID',
     });
     Showtime.hasMany(models.Booking, {
-      foreignKey: 'showtimeId',
-      targetKey: 'showtimeId',
+      foreignKey: 'showtimeID',
+      targetKey: 'showtimeID',
     });
   };
 

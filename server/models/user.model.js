@@ -1,6 +1,6 @@
 module.exports = (sequelize, Datatypes) => {
   const User = sequelize.define('User', {
-    userId: {
+    userID: {
       type: Datatypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
@@ -14,7 +14,7 @@ module.exports = (sequelize, Datatypes) => {
       type: Datatypes.STRING,
       allowNull: false,
     },
-    name: {
+    username: {
       type: Datatypes.STRING,
     },
     phoneNumber: {

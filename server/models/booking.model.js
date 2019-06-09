@@ -1,16 +1,15 @@
 module.exports = (sequelize, Datatypes) => {
   const Booking = sequelize.define('Booking', {
-    bookingId: {
-      type: Datatypes.INTEGER,
+    bookingID: {
+      type: Datatypes.UUID,
       primaryKey: true,
-      allowNull: false,
-      autoIncrement: true,
+      defaultValue: Datatypes.UUIDV4,
     },
-    showtimeId: {
-      type: Datatypes.INTEGER,
+    showtimeID: {
+      type: Datatypes.UUID,
       allowNull: false,
     },
-    userId: {
+    userID: {
       type: Datatypes.INTEGER,
       allowNull: false,
     },
@@ -25,8 +24,8 @@ module.exports = (sequelize, Datatypes) => {
 
   Booking.associate = (models) => {
     Booking.hasMany(models.Ticket, {
-      foreignKey: 'bookingId',
-      targetKey: 'bookingId',
+      foreignKey: 'bookingID',
+      targetKey: 'bookingID',
     });
   };
 

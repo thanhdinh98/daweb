@@ -1,6 +1,6 @@
 module.exports = (sequelize, Datatypes) => {
   const Cinema = sequelize.define('Cinema', {
-    cinemaId: {
+    cinemaID: {
       type: Datatypes.INTEGER,
       primaryKey: true,
       allowNull: false,

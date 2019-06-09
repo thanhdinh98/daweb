@@ -5,9 +5,9 @@ const saltRound = 10;
 
 const updateInfoUser = async (req, res) => {
   const {
-    userId, password, name, phoneNumber,
+    userId, password, username, phoneNumber,
   } = req.body;
-  if (!password && !name && !phoneNumber) {
+  if (!password && !username && !phoneNumber) {
     res.send({ error: true, message: 'Please fill out requirement fields' });
   }
 
@@ -24,8 +24,8 @@ const updateInfoUser = async (req, res) => {
       dataUpdate.password = hash;
     });
   }
-  if (name) {
-    dataUpdate.name = name;
+  if (username) {
+    dataUpdate.username = username;
   }
   if (phoneNumber) {
     dataUpdate.phoneNumber = phoneNumber;
