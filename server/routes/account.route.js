@@ -9,9 +9,9 @@ const updateAccountCtrl = require('../controllers/accounts/updateaccount.control
 
 const router = Router();
 
-router.post('/login', loginCtrl.postLogin);
+router.post('/login', loginCtrl.login);
 router.post('/logout', logoutCtrl.userLogout);
-router.post('/register', registerCtrl.postRegister);
+router.post('/register', registerCtrl.register);
 router.get('/resetpass', resetPasswordCtrl.sendLinkResetPassword);
 router.post('/resetpass', resetPasswordCtrl.resetPassword);
 router.post('/update', updateAccountCtrl.updateInfoUser);

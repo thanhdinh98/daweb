@@ -1,22 +1,30 @@
 module.exports = (sequelize, Datatypes) => {
   const Movie = sequelize.define('Movie', {
-    movieId: {
+    movieID: {
       type: Datatypes.INTEGER,
       primaryKey: true,
       allowNull: false,
       autoIncrement: true,
     },
-    name: {
+    nameMovie: {
       type: Datatypes.STRING,
+      allowNull: false,
+    },
+    genre: {
+      type: Datatypes.STRING,
+      allowNull: false,
     },
     release: {
       type: Datatypes.DATE,
+      allowNull: false,
     },
     poster: {
       type: Datatypes.STRING,
+      allowNull: false,
     },
     duration: {
-      type: Datatypes.DATE,
+      type: Datatypes.INTEGER,
+      allowNull: false,
     },
   });
 

@@ -1,13 +1,12 @@
 module.exports = (sequelize, Datatypes) => {
   const Room = sequelize.define('Room', {
-    roomId: {
+    roomID: {
       type: Datatypes.INTEGER,
       primaryKey: true,
       allowNull: false,
       autoIncrement: true,
     },
-
-    cinemaId: {
+    cinemaID: {
       type: Datatypes.INTEGER,
       allowNull: false,
     },
@@ -20,15 +19,17 @@ module.exports = (sequelize, Datatypes) => {
     },
     rowSize: {
       type: Datatypes.INTEGER,
+      allowNull: false,
     },
     columnSize: {
       type: Datatypes.INTEGER,
+      allowNull: false,
     },
   });
 
   Room.associate = (models) => {
     Room.belongsTo(models.Cinema, {
-      foreignKey: 'cinemaId',
+      foreignKey: 'cinemaID',
     });
   };
 
