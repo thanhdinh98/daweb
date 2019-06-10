@@ -31,7 +31,7 @@ const login = async (req, res) => {
       res.send({ error: true, message: alert });
     }
   }
-  alert = 'Account have not been registed';
+  alert = 'Your email has been used.';
   res.send({ error: true, message: alert });
 };
 

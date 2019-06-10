@@ -16,7 +16,7 @@ const verifyEmail = async (req, res) => {
       permission: 1,
       token: newToken,
     });
-    return res.send({ error: false, message: 'Verify email successfull.' });
+    return res.send({ error: false, message: 'Verify email successfully.' });
   }
   return res.send({ error: false, message: 'Verify email fail.' });
 };

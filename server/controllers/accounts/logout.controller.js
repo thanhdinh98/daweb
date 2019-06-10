@@ -1,4 +1,4 @@
-const userLogout = (req, res) => {
+const logout = (req, res) => {
   if (req.session.email) {
     delete req.session.email;
     return res.send({ error: false });
@@ -6,4 +6,4 @@ const userLogout = (req, res) => {
   return res.send({ error: true });
 };
 
-module.exports = { userLogout };
+module.exports = { logout };

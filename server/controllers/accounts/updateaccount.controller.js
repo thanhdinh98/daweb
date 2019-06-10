@@ -5,15 +5,16 @@ const saltRound = 10;
 
 const updateInfoUser = async (req, res) => {
   const {
-    userId, password, username, phoneNumber,
+    userID, password, username, phoneNumber,
   } = req.body;
+
   if (!password && !username && !phoneNumber) {
-    res.send({ error: true, message: 'Please fill out requirement fields' });
+    res.send({ error: true, message: 'Please fill out all requirement fields' });
   }
 
   const user = await User.findOne({
     where: {
-      userId,
+      userID,
     },
   });
 
