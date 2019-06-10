@@ -1,6 +1,8 @@
+import image from './tickets.png';
+
 const BookingButton = id => `
     <button class="btn btn-light booking" id=${id}>
-      <img src="tickets.png" class="tickets">
+      <img src="${image}" class="tickets">
       Booking
     </button>
   `;

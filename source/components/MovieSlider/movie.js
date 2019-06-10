@@ -1,4 +1,4 @@
-import image from './test.jpg';
+import image from './test.jpeg';
 
 const Movie = movie => `
     <div class='item'>

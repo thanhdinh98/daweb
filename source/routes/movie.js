@@ -1,7 +1,18 @@
 import DetailPage from '../components/pages/DetailPage';
 import BookingPage from '../components/pages/BookingPage';
 
+import Header from '../components/header';
+import Footer from '../components/footer';
+
 import bookingController from '../controllers/movie/booking';
+
+const App = component => `
+    <div>
+      <div class='top-bar'>${Header()}</div>
+      <div>${component}</div>
+      <div>${Footer()}</div>
+    </div>
+  `;
 
 export default (basePath, path) => {
   const [, , id] = path.split('/');
@@ -16,12 +27,11 @@ export default (basePath, path) => {
         duration: '180 minutes',
         iframeUrl: 'https://www.youtube.com/embed/TcMBFSGVi1c',
       };
-      document.querySelector('#main').innerHTML = DetailPage(movie);
+      document.querySelector('#main').innerHTML = App(DetailPage(movie));
       break;
     }
     case `${basePath}/${id}/booking`: {
-      document.querySelector('#main').innerHTML = BookingPage({
-      });
+      document.querySelector('#main').innerHTML = App(BookingPage({}));
       bookingController.afterRender();
       break;
     }
