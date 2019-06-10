@@ -38,7 +38,7 @@ const register = async (req, res) => {
   });
 
   if (usedPhone) {
-    alert = 'Your number phone has been used!';
+    alert = 'Your phone number has been used!';
     return res.send({ error: true, message: alert });
   }
 

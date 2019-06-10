@@ -9,7 +9,7 @@ module.exports = (sequelize, Datatypes) => {
     nameMovie: {
       type: Datatypes.STRING,
       allowNull: false,
-    },    
+    },
     description: {
       type: Datatypes.STRING,
     },

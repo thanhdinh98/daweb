@@ -1,13 +1,13 @@
-const Booking = require('../../models/booking.model');
+const models = require('../../models');
 
-const postAllBooking = async (req, res) => {
+const allBooking = async (req, res) => {
   let alert = "Here's your all booking!";
-  const allBooking = await Booking.findAll();
-  if (allBooking) {
-    return res.send({ error: false, message: alert, allBooking });
+  const booking = await models.Booking.findAll();
+  if (booking) {
+    return res.send({ error: false, message: alert, booking });
   }
   alert = "Can't find any booking that you need!";
   return res.send({ error: true, message: alert });
 };
 
-module.exports = { postAllBooking };
+module.exports = { allBooking };

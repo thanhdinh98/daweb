@@ -1,23 +1,62 @@
 const Sequelize = require('sequelize');
-const Showtime = require('../../models/showtime.model');
+const models = require('../../models');
 
-const postAllShowTime = async (req, res) => {
-  let alert = "Here's your all movies.";
-  const allShowTime = await Showtime.findAll({
+const allShowTime = async (req, res) => {
+  let alert = "Here's your all showtimes.";
+  const showtime = await models.Showtime.findAll({
     where: {
       startTime: {
         $gte: Sequelize.NOW,
       },
-      attributes: ['movieId'],
     },
   });
 
-  if (allShowTime) {
-    return res.send({ error: false, message: alert, allShowTime });
+  if (showtime) {
+    return res.send({ error: false, message: alert, showtime });
   }
 
   alert = "Can't find any movies that equal to your selections";
   return res.send({ error: true, message: alert });
 };
 
-module.exports = { postAllShowTime };
+const searchShowTimeOfMovieBelongToCinema = async (req, res) => {
+  let alert = "Here's your all showtime.";
+  const { movieID } = req.body;
+
+  const showtime = await models.Showtime.findAll({
+    where: {
+      movieID,
+      startTime: {
+        $gte: Sequelize.NOW,
+      },
+    },
+  });
+
+  if (showtime) {
+    return res.send({ error: false, message: alert, showtime });
+  }
+  alert = 'Cannot find any showtime that you need.';
+  return res.send({ error: true, message: alert });
+};
+
+const searchShowTimeOfCinema = async (req, res) => {
+  let alert = "Here's your all showtime.";
+  const { cinemaID } = req.body;
+
+  const showtime = await models.Showtime.findAll({
+    where: {
+      cinemaID, // rewrite
+      startTime: {
+        $gte: Sequelize.NOW,
+      },
+    },
+  });
+
+  if (showtime) {
+    return res.send({ error: false, message: alert, showtime });
+  }
+  alert = 'Cannot find any showtime that you need.';
+  return res.send({ error: false, message: alert });
+};
+
+module.exports = { allShowTime, searchShowTimeOfMovieBelongToCinema, searchShowTimeOfCinema };

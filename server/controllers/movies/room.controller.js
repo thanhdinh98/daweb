@@ -1,13 +1,13 @@
-const Room = require('../../models/room.model');
+const models = require('../../models');
 
-const postAllRoom = async (req, res) => {
+const allRoom = async (req, res) => {
   let alert = "Here's all your room!";
-  const allRoom = await Room.findAll();
-  if (allRoom) {
-    return res.send({ error: false, message: alert, allRoom });
+  const room = await models.Room.findAll();
+  if (room) {
+    return res.send({ error: false, message: alert, room });
   }
   alert = "Can't find any rooms that you need.";
   return res.send({ error: true, message: alert });
 };
 
-module.exports = { postAllRoom };
+module.exports = { allRoom };

@@ -1,12 +1,12 @@
 const bcrypt = require('bcryptjs');
-const Users = require('../../models/user.model').default;
+const model = require('../../models');
 const sendEmail = require('./sendemail.controller');
 
 const saltRound = 10;
 
 const sendLinkResetPassword = async (req, res) => {
   const { email } = req.body;
-  const user = await Users.findOne({
+  const user = await model.User.findOne({
     where: {
       email,
     },
@@ -26,7 +26,7 @@ const sendLinkResetPassword = async (req, res) => {
 
 const resetPassword = async (req, res) => {
   const { email, token } = req.query;
-  const user = await Users.findOne({
+  const user = await model.User.findOne({
     where: {
       email,
     },
@@ -42,7 +42,7 @@ const resetPassword = async (req, res) => {
   const { password } = req.body;
   const newToken = Math.random().toString(36).substring(2);
   await bcrypt.hash(password, saltRound).then(async (hash) => {
-    user.update({
+    model.User.update({
       password: hash,
       token: newToken,
     });
