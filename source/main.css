@@ -5,25 +5,55 @@
   margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
 }
 
-.nav a{
-  color:white;
+.nav a {
+  color: white;
   text-decoration: none;
   font-size: 14px;
 }
 
 /* List item */
 
-.list-item{
+.list-item {
   flex-wrap: nowrap;
+}
+
+.btn-home-page {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  text-align: left;
+}
+
+.form-input {
+  background-color: rgba(125, 125, 125, 0.2);
+  color: white;
+  font-size: 12px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.btn-home-page:hover {
+  background-color: rgba(225, 255, 255, 0.2);
 }
 
 /* Item */
 
-.item{
+.item {
   margin: 10px;
   position: relative;
   display: inline-block;
@@ -32,13 +62,13 @@ h1, h2, h3, h4, h5, h6{
   transition: 0.4s;
 }
 
-.item .image{
+.item .image {
   width: 200px;
   height: 250px;
   border-radius: 5px;
 }
 
-.item .content{
+.item .content {
   position: absolute;
   bottom: 0;
   color: white;
@@ -46,806 +76,538 @@ h1, h2, h3, h4, h5, h6{
   transition: 0.4s;
 }
 
-.item:hover .content{
+.item:hover .content {
   bottom: 20px;
 }
 
-.item:hover{
+.item:hover {
   bottom: 10px;
 }
 
+.sidebar {
+  background-color: rgba(125, 125, 125, 0.1);
+}
 
-/* Hot movie */
+.movie-main-content {
+  background-color: rgba(0, 0, 0, 0.6);
+} /* Hot movie */
 
-.hot-movie{
+.hot-movie {
   position: relative;
   display: inline-block;
   cursor: pointer;
   width: 100%;
 }
 
-.hot-movie .image{
+.hot-movie .image {
   height: 250px;
   width: 100%;
 }
 
-.hot-movie .content{
+.hot-movie .content {
   color: white;
   position: absolute;
   bottom: 0;
 }
-  
+
 /* Topbar */
 
-.top-bar{
+.top-bar {
   height: 60px;
+  background-color: rgba(125, 125, 125, 0.1);
 }
 
-.hotline{
-	background-color:rgba(0, 0, 0, 0.5);
+.hotline {
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
   width: 50%;
   height: 60px;
   padding-top: 5px;
 }
 
-.hotline .text{
+.hotline .text {
   font-size: 14px;
 }
 
-.right-panel a{
+.right-panel a {
   margin-right: 10px;
 }
 
-.logo{
+.logo {
   font-weight: bold;
   font-size: 20px;
   color: white;
 }
 
-.nav .active{
+.nav .active {
   font-weight: bold;
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
   color: white;
+  margin-top: 15px;
 }
-  
+
 /* Footer */
 
-.footer{
+.footer {
   color: white;
   font-weight: bold;
-	border-top: 1px solid white;
-	padding: 20px;
-	margin-top: 20px;
-	background-color: rgba(0, 0, 0, 0.5);
+  border-top: 1px solid white;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* Search */
 
-.search{
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+#main {
+  background-color: rgba(0, 0, 0, 0.4);
+  text-shadow: 1px 1px black;
 }
 
-.login{
-	width: 40%;
-	margin: auto;
-	color: white;
-	background-color: rgba(0,0,0,0.4);
-	padding: 50px;
-	padding-top: 100px;
-	height: 90%;
+.login {
+  width: 35%;
+  margin: auto;
+  color: white;
+  padding: 50px;
+  padding-top: 100px;
+  height: 90%;
+  background-color: rgba(125, 125, 125, 0.1);
+  border: none;
+  border-radius: 10px;
+  text-shadow: 1px 1px black;
+  box-shadow: 2px 6px 10px black;
 }
 
-.title-login{
-	padding-bottom: 20px;
-	font-size: 30px;
-	display: table;
-	margin: 0 auto; 
+.login .log {
+  background-color: rgba(125, 125, 125, 0.4);
 }
 
-.formInput{
-	background-color: rgba(125,125,125,0.4);
-	color: white;
-	border: 0;
-	border-radius: 5px;
-	width: 100%;
-	padding: 10px;
+.title-login {
+  padding-bottom: 20px;
+  font-size: 30px;
+  display: table;
+  margin: 0 auto;
 }
 
-.login-container{
-	padding-top: 50px;
+.formInput {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px;
 }
 
-.loginButton{
-	display: table;
-	margin: 0 auto;
-	width: 100%;
-	margin-top: 20px;
+.login-container {
+  padding-top: 50px;
 }
 
-html, body{
-	height: 100%;
-}
-body{
-	background:url("empty-cinema.jpg");
-	background-attachment: fixed;
-	background-size: cover;	
-	overflow-x: hidden;
+.loginButton {
+  display: table;
+  margin: 0 auto;
+  width: 100%;
+  margin-top: 20px;
 }
 
-.register{
-	width: 40%;
-	margin: auto;
-	color: white;
-	background-color: rgba(0,0,0,0.4);
-	padding: 50px;
-	/*padding-top: 100px;*/
-	height: 90%;
+html,
+body {
+  height: 100%;
+}
+body {
+  background: url("cinema.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  overflow-x: hidden;
 }
 
-.title-register{
-	padding-bottom: 20px;
-	font-size: 30px;
-	display: table;
-	margin: 0 auto; 
+.register {
+  width: 40%;
+  margin: auto;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 50px;
+  /*padding-top: 100px;*/
+  height: 90%;
+  background-color: rgba(125, 125, 125, 0.1);
+  border: none;
+  border-radius: 10px;
+  text-shadow: 1px 1px black;
+  box-shadow: 2px 6px 10px black;
 }
 
-.formInput{
-	background-color: rgba(125,125,125,0.4);
-	color: white;
-	border: 0;
-	border-radius: 5px;
-	width: 100%;
-	padding: 10px;
+.title-register {
+  padding-bottom: 20px;
+  font-size: 30px;
+  display: table;
+  margin: 0 auto;
 }
 
-.register-container{
-	padding-top: 50px;
+.register-container {
+  padding-top: 50px;
 }
 
-.registerButton{
-	display: table;
-	margin: 0 auto;
-	width: 100%;
-	margin-top: 20px;
+.registerButton {
+  display: table;
+  margin: 0 auto;
+  width: 100%;
+  margin-top: 20px;
 }
 
-.forgot-password{
-	width: 40%;
-	margin: auto;
-	color: white;
-	background-color: rgba(0,0,0,0.4);
-	padding: 50px;
-	padding-top: 100px;
-	height: 70%;
+.forgot-password {
+  width: 40%;
+  margin: auto;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 50px;
+  padding-top: 100px;
+  height: 70%;
+  background-color: rgba(125, 125, 125, 0.1);
+  border: none;
+  border-radius: 10px;
+  text-shadow: 1px 1px black;
+  box-shadow: 2px 6px 10px black;
 }
 
-.title-forgot-password{
-	padding-bottom: 20px;
-	font-size: 30px;
-	display: table;
-	margin: 0 auto; 
+.title-forgot-password {
+  padding-bottom: 20px;
+  font-size: 30px;
+  display: table;
+  margin: 0 auto;
 }
 
-.formInput{
-	background-color: rgba(125,125,125,0.4);
-	color: white;
-	border: 0;
-	border-radius: 5px;
-	width: 100%;
-	padding: 10px;
+.formInput {
+  background-color: rgba(125, 125, 125, 0.4);
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px;
 }
 
-.div-linkTo{
-	padding-top: 10px;
+.div-linkTo {
+  padding-top: 10px;
 }
 
-.div-linkTo a{
-	text-decoration: none;
-	color: white;
-}
-
-.forgot-password-container{
-	padding-top: 100px;
-}
-
-.forgot-passwordButton{
-	display: table;
-	margin: 0 auto;
-	width: 100%;
-	margin-top: 20px;
-}
-.list-movie{
+.div-linkTo a {
+  text-decoration: none;
   color: white;
 }
-.sign-in{
-	color: white;
-	font-weight: bold;
-}
-
-.href{
-	color: white;
-	padding: 10px;
-	margin-top: 20px;
-	font-size: 22px;
-}
-
-.info{
-	padding: 5%;
-}
-
-.btn{
-	margin-top: 10px;
-	background-color: white;
-	color: black;
-}
-
-.btn:hover{
-	background-color:black;
-	color:white;
-}
-
-.top-bar{
-	margin-bottom: 20px;
-	border: 1px;
-	border-radius: 5px;
-}
-
-.hotline{
-	border-radius: 5px;
-}
-
-.body-movie{
-	background-color: rgba(0, 0, 0, 0.5);
-	height: 100%;
-	margin-top: 10px;
-	padding: 10px;
-	height: auto;
-	border-radius: 5px;
-}
-
-.poster{
-	height: 550px;
-	width: 400px;
-}
-
-.title-info{
-	font-size: 22px;
-	color: white;
-	background-color: rgba(0,0,0,0.4);
-	margin-bottom: 10px;
-	border-radius: 5px;
-	padding: 20px;
-	font-family: tahoma;
-}
-
-.title-movie{
-	font-size: 22px;
-	margin-top: 30px;
-}
-
-.movie-introduce{
-	color: white;
-	font-size: 18px;
-	text-align: justify;
-}
-
-.trailer{
-	margin-top: 10px;
-	height: auto;
-	width: auto;
-}
-
-.tickets{
-	height: 20px;
-	width: 20px;
-}
-
-.booking{
-	background-color: rgba(0,0,0,0.6);
-	width: 400px;
-	position: relative;
-	top: -50px;
-	font-weight: bold;
-	color: white;
-	border: 0;
-	transition: 0.2s;
-}
-.booking:hover{
-	background-color: rgba(0,128,0, 0.6);
-}
-
-.booking-page{
-	margin-top: 70px;
-	background-color: rgba(0, 0, 0, 0.5);
-	width: 100%;
-	height: auto;
-	color: white;
-	padding-bottom: 20px;
-	border: none;
-	border-radius: 20px;
-}
-
-.booking-title{
-	font-size: 20px;
-	font-weight: bold;
-	padding-top: 40px;
-	padding-bottom: 20px;
-	text-align: center;
-}
-.movie-name{
-	padding-left: 20px;
-	font-size: 18px;
-	padding-bottom: 30px;
-}
-
-.general-information option{
-	background-color: black;
-	color: white; 
-}
-
-.general-information{
-	background-color: rgba(0,0,0,0.5);
-	color: white;
-	border-radius: 10px; 
-	padding: 5px;
-}
-
-.movie-booking-body{
-	margin-bottom: 20px;
-	padding-bottom: 20px;
-}
-
-.btn-not-book{
-	border-radius: 2px;
-	width: 30px;
-	background-color: rgba(225, 225, 225, 0.4);
-	border: none;
-	color: white;
-	margin: 3px;
-	padding: 6px;
-}
-
-.btn-not-book:Hover, .btn-booking:hover{
-	background-color: rgba(0, 0, 0, 0.4);
-	border: none;
-	color: white;
-	cursor: pointer;
-	
-}
-
-.btn-booking{
-	border-radius: 2px;
-	width: 30px;
-	background-color: rgba(0,128,0, 0.6);
-	border: none;
-	color: white;
-	margin: 3px;
-	padding: 6px;
-}
-
-.btn-booked{
-	border-radius: 2px;
-	width: 30px;
-	background-color: rgba(225, 0, 0, 0.6);
-	border: none;
-	color: white;
-	margin: 3px;
-	padding: 6px;
-}
-
-.btn-submit{
-	margin-top: 50px;
-	border-radius: 10px;
-	border: none;
-	padding: 10px;
-	width: 10%;
-	background-color: rgba(0,128,0, 0.6);
-	transition: 0.2s;
-	color: white;
-	cursor: pointer;
-}
-
-.btn-submit:hover{
-	background-color: rgba(225,225,225,0.5);
-}
-
-.guide{
-	padding-top: 50px;
-	font-size: 12px;
-}
-
-.guide-not-book{
-	background-color: rgba(225, 225, 225, 0.4);
-	width: 50px;
-	height: 20px;
-	border: none;
-	border-radius: 5px;
-	margin-right: 5px;
-	margin-left: -10px;
-}
-
-.guide-booking{
-	background-color: rgba(0,128,0, 0.6);	
-	width: 50px;
-	height: 20px;
-	border: none;
-	border-radius: 5px;
-	margin-right: 5px;
-	margin-left: 20px;
-}
-
-.guide-booked{
-	background-color: rgba(225, 0, 0, 0.6);
-	width: 50px;
-	height: 20px;
-	border: none;
-	border-radius: 5px;
-	margin-right: 5px;
-	margin-left: 20px;
-}
-
-.list-movie-page{
-	margin-top: 30px;
-	background-color: rgba(0, 0, 0, 0.5);
-	width: 100%;
-	height: auto;
-	color: white;
-	padding-bottom: 20px;
-	border: none;
-	border-radius: 20px;
-}
-
-.list-movie-title{
-	font-size: 30px;
-	font-weight: bold;
-	padding-top: 40px;
-	padding-bottom: 20px;
-	text-align: center;
-}
-
-.body-list-movie{
-	margin-bottom: 50px; 
-}
-
-.btn-movie-type{
-	width: 100%;
-	background-color: rgba(225, 225, 225, 0.5);
-	border: none;
-	border-radius: 5px;
-	color: white;
-	padding: 5px;
-	margin: 5px;
-}
-
-.btn-movie-type:hover{
-	background-color: rgba(225, 225, 225, 0.2);
-}
-
-.poster-list-movie{
-	width: 240px;
-	height: 340px;
-}
-
-
-.poster-list-movie:hover{
-	width: 250px;
-	height: 350px;
-	transition: 0.5s;
-}
-
-.btn-booking-list-movie, .btn-detail-list-movie{
-	width: 45%;
-	border: none;
-	border-radius: 5px;
-	padding: 5px;
-	position: relative;
-	top: -35px;
-}
-
-.btn-booking-list-movie:hover, .btn-detail-list-movie:hover{
-	background-color: rgba(0 ,0 ,0 ,0.6);
-	color: white;
-}
-
-.btn-booking-list-movie{
-	background-color: rgba(0, 128, 0, 0.6);
-	color: white;
-}
 
-.btn-detail-list-movie{
-	background-color: rgba(225 ,225 ,255 ,0.4);
-	color: white;
+.forgot-password-container {
+  padding-top: 100px;
 }
 
-.movie-title-list-movie{
-	position: relative;
-	top: -30px;
-	font-weight: bold;
+.forgot-passwordButton {
+  display: table;
+  margin: 0 auto;
+  width: 100%;
+  margin-top: 20px;
 }
-
-.ticket-page{
-	margin-top: 30px;
-	background-color: rgba(0, 0, 0, 0.5);
-	width: 100%;
-	height: auto;
-	color: white;
-	padding-bottom: 20px;
-	border: none;
-	border-radius: 20px;
+.list-movie {
+  color: white;
 }
-
-.ticket-title{
-	background-color: rgba(0, 0, 0, 0.4);
-	width: 100%;
-	height: auto;
-	border: none;
-	border-radius: 20px;
-	padding: 20px;
-	font-size: 30px;
-	text-align: center;
-	font-weight: bold;
-	margin-bottom: 40px;
+.sign-in {
+  color: white;
+  font-weight: bold;
 }
 
-.ticket{
-	background-color:rgba(255,140,0, 0.8);
-	height: 380px;
-	width: 80%;
-	margin: auto;
-	border: none;
-	border-radius: 10px;
-	margin-bottom: 20px;
-	/*padding-top: 50px;*/
+.href {
+  color: white;
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 22px;
 }
 
-.Welcome{
-	margin: 5px;
-	/*padding: 50px;*/
-	/*padding-top: 50px;*/
-	/*text-align: center;*/
+.info {
+  padding: 5%;
 }
 
-.tickets-body{
-	background-color:rgba(255,255,255, 1);
-	height: 250px;
-	width: 90%;
-	margin: auto;
-	/*margin-top: 50px;*/
-	border: none;
-	border-radius: 10px;
-	color: black;
+.btn {
+  margin-top: 10px;
+  width: 100%;
 }
 
-.info-name{
-	padding-left: 100px;
+.btn:hover {
+  background-color: black;
+  color: white;
 }
 
-.ticket-content{
-	font-weight: bold;	
+.top-bar {
+  margin-bottom: 20px;
+  border: 1px;
+  border-radius: 5px;
 }
 
-.ticket-info{
-	margin-top: 5px;
+.hotline {
+  border-radius: 5px;
 }
 
-.company{
-	font-size: 22px;
-	font-weight: bold;
-	padding-left: 100px;
-	margin-top: -20px;
-	padding-bottom: 10px;
-	padding-top: 10px;
+.body-movie {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  height: auto;
+  border-radius: 5px;
 }
 
-.qr_code{
-	width: 150px;
-	height: 150px;
-	margin: auto;
-	margin-top: 13%; 
-}
-
-.update-info-user-page{
-	margin-top: 50px;
-	background-color: rgba(0, 0, 0, 0.5);
-	width: 100%;
-	height: auto;
-	color: white;
-	padding-bottom: 20px;
-	border: none;
-	border-radius: 20px;
+.poster {
+  height: 550px;
+  width: 400px;
 }
 
-.update-info-user-title{
-	background-color: rgba(0, 0, 0, 0.4);
-	width: 100%;
-	height: auto;
-	border: none;
-	border-radius: 20px;
-	padding: 20px;
-	font-size: 30px;
-	text-align: center;
-	font-weight: bold;
-	margin-bottom: 40px;
+.title-info {
+  font-size: 22px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 20px;
+  font-family: tahoma;
 }
 
-.update-info-content{
-	width: 90%;
-	margin: auto;
-	background-color: rgba(0, 0, 0, 0.4);
-	padding: 40px;
-	border: none;
-	border-radius: 10px;
+.title-movie {
+  font-size: 22px;
+  margin-top: 30px;
 }
 
-.formUpdate{
-	background-color: rgba(0, 0, 0, 0.2);
-	color: white;
-	border: 1px solid white;
-	border-radius: 5px;
-	width: 100%;
-	padding: 10px;
+.movie-introduce {
+  color: white;
+  font-size: 18px;
+  text-align: justify;
 }
 
-.Update-title{
-	padding-bottom: 20px;
-	font-size: 20px;
-	display: table;
+.trailer {
+  margin-top: 10px;
+  height: auto;
+  width: auto;
 }
 
-.btn-Update-info{
-	background-color: rgba(0, 191, 255, 0.5);
-	color: white;
-	padding: 10px;
-	border: none;
-	border-radius: 10px;
-	width: 40%;
+.tickets {
+  height: 20px;
+  width: 20px;
 }
 
-.btn-Update-info:hover{
-	background-color: rgba(125, 125, 155, 0.5);
-}
+.booking {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 400px;
+  position: relative;
+  top: -50px;
+  font-weight: bold;
+  color: white;
+  border: 0;
+  transition: 0.2s;
+}
+.booking:hover {
+  background-color: rgba(0, 128, 0, 0.6);
+}
+
+.booking-page {
+  margin-top: 70px;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: auto;
+  color: white;
+  padding-bottom: 20px;
+  border: none;
+  border-radius: 20px;
+}
 
-.cinema-management-page{
-	margin-top: 30px;
-	background-color: rgba(0, 0, 0, 0.5);
-	width: 100%;
-	height: auto;
-	color: white;
-	padding-bottom: 20px;
-	border: none;
-	border-radius: 20px;
+.booking-title {
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+.movie-name {
+  padding-left: 20px;
+  font-size: 18px;
+  padding-bottom: 30px;
+}
+
+.general-information option {
+  background-color: black;
+  color: white;
+}
+
+.general-information {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.movie-booking-body {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.btn-not-book {
+  border-radius: 2px;
+  width: 30px;
+  background-color: rgba(225, 225, 225, 0.4);
+  border: none;
+  color: white;
+  margin: 3px;
+  padding: 6px;
+}
+
+.btn-not-book:hover,
+.btn-booking:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-booking {
+  border-radius: 2px;
+  width: 30px;
+  background-color: rgba(0, 128, 0, 0.6);
+  border: none;
+  color: white;
+  margin: 3px;
+  padding: 6px;
+}
+
+.btn-booked {
+  border-radius: 2px;
+  width: 30px;
+  background-color: rgba(225, 0, 0, 0.6);
+  border: none;
+  color: white;
+  margin: 3px;
+  padding: 6px;
 }
 
-.cinema-management-title{
-	font-size: 30px;
-	font-weight: bold;
-	padding-top: 40px;
-	padding-bottom: 20px;
-	text-align: center;
+.btn-submit {
+  margin-top: 50px;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  width: 10%;
+  background-color: rgba(0, 128, 0, 0.6);
+  transition: 0.2s;
+  color: white;
+  cursor: pointer;
 }
 
-.revenue-page{
-	margin-top: 50px;
-	background-color: rgba(0, 0, 0, 0.5);
-	width: 100%;
-	height: auto;
-	color: white;
-	padding-bottom: 20px;
-	border: none;
-	border-radius: 20px;
+.btn-submit:hover {
+  background-color: rgba(225, 225, 225, 0.5);
 }
 
-.revenue-title{
-	font-size: 30px;
-	font-weight: bold;
-	background-color: rgba(0, 0, 0, 0.5);
-	padding-top: 40px;
-	padding-bottom: 20px;
-	text-align: center;
+.guide {
+  padding-top: 50px;
+  font-size: 12px;
 }
 
-.btn-calculator{
-	background-color: rgba(0, 128, 0, 0.6);
-	padding: 10px;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	margin-bottom: 20px;
+.guide-not-book {
+  background-color: rgba(225, 225, 225, 0.4);
+  width: 50px;
+  height: 20px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 5px;
+  margin-left: -10px;
 }
 
-.btn-calculator:hover{
-	background-color: rgba(0, 0, 0, 0.6);
-	transition: 0.5s;
+.guide-booking {
+  background-color: rgba(0, 128, 0, 0.6);
+  width: 50px;
+  height: 20px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 5px;
+  margin-left: 20px;
 }
 
-.form-revenue{
-	color: white;
-	background-color: black;
-	border: none;
-	border-radius: 10px;
-	padding: 5px;
+.guide-booked {
+  background-color: rgba(225, 0, 0, 0.6);
+  width: 50px;
+  height: 20px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 5px;
+  margin-left: 20px;
 }
 
-.form-revenue option{
-	color: white;
-	background-color: black;
+.list-movie-page {
+  margin-top: 30px;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: auto;
+  color: white;
+  padding-bottom: 20px;
+  border: none;
+  border-radius: 20px;
 }
 
-.title-table{
-	color: white;
-	background-color: rgba(0, 0, 0, 0.6);
-	padding: 5px;
-	font-weight: bold;
-	font-size: 18px;
+.list-movie-title {
+  font-size: 30px;
+  font-weight: bold;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  text-align: center;
 }
 
-.cluster-cinema-title-table{
-	color: white;
-	background-color: rgba(0, 0, 0, 0.6);
-	padding: 10px;
-	font-weight: bold;
-	font-size: 18px;
-	border: none;
-	border-radius: 5px;
+.body-list-movie {
+  margin-bottom: 50px;
 }
 
-.cluster-cinema-title{
-	font-size: 22px;
-	font-weight: bold;
+.btn-movie-type {
+  width: 100%;
+  background-color: rgba(225, 225, 225, 0.5);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 5px;
+  margin: 5px;
 }
 
-.cluster-cinema{
-	background-color: rgba(0, 0, 0, 0.4);
+.btn-movie-type:hover {
+  background-color: rgba(225, 225, 225, 0.2);
 }
 
-.btn-edit{
-	color: white;
-	background-color: rgba(0, 128, 0, 0.6);
-	padding: 5px;
-	width: 90px;
-	border: none;
-	border-radius: 10px;
+.poster-list-movie {
+  width: 240px;
+  height: 340px;
 }
 
-.btn-remove{
-	color: white;
-	background-color: rgba(225, 0, 0, 0.6);
-	padding: 5px;
-	width: 90px;
-	border: none;
-	border-radius: 10px;
+.poster-list-movie:hover {
+  width: 250px;
+  height: 350px;
+  transition: 0.5s;
 }
 
-.btn-edit:hover, .btn-remove:hover{
-	background-color: rgba(0, 0, 0, 0.6);
+.btn-booking-list-movie,
+.btn-detail-list-movie {
+  width: 45%;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  position: relative;
+  top: -35px;
 }
 
-.update-cluster-cinema{
-	background-color: rgba(0, 0, 0, 0.3);
-	margin-top: 20px;
-	padding: 10px;
-	border-radius: 10px;
+.btn-booking-list-movie:hover,
+.btn-detail-list-movie:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
 }
 
-.update-cluster-cinema-body{
-	width: 90%;
-	margin: auto;
+.btn-booking-list-movie {
+  background-color: rgba(0, 128, 0, 0.6);
+  color: white;
 }
 
-.btn-Update-cluster-cinema{
-	background-color: rgba(0, 191, 255, 0.5);
-	color: white;
-	padding: 10px;
-	border: none;
-	border-radius: 10px;
-	width: 20%;
-	margin-top: 20px;
+.btn-detail-list-movie {
+  background-color: rgba(225, 225, 255, 0.4);
+  color: white;
 }
 
-.update-cluster-cinema-title{
-	font-size: 20px;
-	font-weight: bold;
-	padding: 20px;
-	width: 100%;
+.movie-title-list-movie {
+  position: relative;
+  top: -30px;
+  font-weight: bold;
 }
