@@ -29,6 +29,10 @@ module.exports = (sequelize, Datatypes) => {
       type: Datatypes.INTEGER,
       allowNull: false,
     },
+    trailer: {
+      type: Datatypes.STRING,
+      allowNull: false,
+    },
   });
 
   return Movie;
