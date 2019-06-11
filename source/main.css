@@ -160,7 +160,7 @@ h6 {
 /* Search */
 
 #main {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
   text-shadow: 1px 1px black;
 }
 
@@ -343,7 +343,7 @@ body {
 }
 
 .body-movie {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(125, 125, 125, 0.2);
   height: 100%;
   margin-top: 10px;
   padding: 10px;
@@ -359,7 +359,7 @@ body {
 .title-info {
   font-size: 22px;
   color: white;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(125, 125, 125, 0.1);
   margin-bottom: 10px;
   border-radius: 5px;
   padding: 20px;
@@ -389,7 +389,7 @@ body {
 }
 
 .booking {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 128, 0, 0.6);
   width: 400px;
   position: relative;
   top: -50px;
@@ -399,12 +399,12 @@ body {
   transition: 0.2s;
 }
 .booking:hover {
-  background-color: rgba(0, 128, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .booking-page {
   margin-top: 70px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(125, 125, 125, 0.2);
   width: 100%;
   height: auto;
   color: white;
@@ -416,9 +416,12 @@ body {
 .booking-title {
   font-size: 20px;
   font-weight: bold;
-  padding-top: 40px;
-  padding-bottom: 20px;
+  padding: 20px;
+  /*padding-bottom: 20px;*/
   text-align: center;
+  border: 	none;
+  border-radius: 10px;
+  background-color: rgba(125, 125, 125, 0.2);
 }
 .movie-name {
   padding-left: 20px;
@@ -446,7 +449,7 @@ body {
 .btn-not-book {
   border-radius: 2px;
   width: 30px;
-  background-color: rgba(225, 225, 225, 0.4);
+  background-color: rgba(225, 225, 225, 0.5);
   border: none;
   color: white;
   margin: 3px;
@@ -455,7 +458,7 @@ body {
 
 .btn-not-book:hover,
 .btn-booking:hover {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.6);
   border: none;
   color: white;
   cursor: pointer;
@@ -464,7 +467,7 @@ body {
 .btn-booking {
   border-radius: 2px;
   width: 30px;
-  background-color: rgba(0, 128, 0, 0.6);
+  background-color: rgba(0, 128, 0, 0.7);
   border: none;
   color: white;
   margin: 3px;
@@ -474,7 +477,7 @@ body {
 .btn-booked {
   border-radius: 2px;
   width: 30px;
-  background-color: rgba(225, 0, 0, 0.6);
+  background-color: rgba(225, 0, 0, 0.7);
   border: none;
   color: white;
   margin: 3px;
@@ -610,4 +613,291 @@ body {
   position: relative;
   top: -30px;
   font-weight: bold;
+}
+
+/*ticket*/
+.ticket-page{
+	margin-top: 30px;
+	background-color: rgba(125, 125, 125, 0.2);
+	width: 100%;
+	height: auto;
+	color: white;
+	padding-bottom: 20px;
+	border: none;
+	border-radius: 20px;
+}
+
+.ticket-title{
+	background-color: rgba(125, 125, 125, 0.2);
+	width: 100%;
+	height: auto;
+	border: none;
+	border-radius: 20px;
+	padding: 20px;
+	font-size: 30px;
+	text-align: center;
+	font-weight: bold;
+	margin-bottom: 40px;
+}
+
+.ticket{
+	background-color:rgba(255,140,0, 0.9);
+	height: 380px;
+	width: 80%;
+	margin: auto;
+	border: none;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	/*padding-top: 50px;*/
+}
+
+.Welcome{
+	margin: 5px;
+	/*padding: 50px;*/
+	/*padding-top: 50px;*/
+	/*text-align: center;*/
+}
+
+.tickets-body{
+	background-color:rgba(255,255,255, 1);
+	height: 250px;
+	width: 90%;
+	margin: auto;
+	/*margin-top: 50px;*/
+	border: none;
+	border-radius: 10px;
+	color: black;
+}
+
+.info-name{
+	padding-left: 100px;
+}
+
+.ticket-content{
+	font-weight: bold;	
+}
+
+.ticket-info{
+	margin-top: 5px;
+}
+
+.company{
+	font-size: 22px;
+	font-weight: bold;
+	padding-left: 100px;
+	margin-top: -20px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.qr_code{
+	width: 150px;
+	height: 150px;
+	margin: auto;
+	margin-top: 13%; 
+}
+
+.update-info-user-page{
+	margin-top: 50px;
+	background-color: rgba(125, 125, 125, 0.2);
+	width: 100%;
+	height: auto;
+	color: white;
+	padding-bottom: 20px;
+	border: none;
+	border-radius: 20px;
+}
+
+.update-info-user-title{
+	background-color: rgba(125, 125, 125, 0.2);
+	width: 100%;
+	height: auto;
+	border: none;
+	border-radius: 20px;
+	padding: 20px;
+	font-size: 30px;
+	text-align: center;
+	font-weight: bold;
+	margin-bottom: 40px;
+}
+
+.update-info-content{
+	width: 90%;
+	margin: auto;
+	background-color: rgba(0, 0, 0, 0.4);
+	padding: 40px;
+	border: none;
+	border-radius: 10px;
+}
+
+.formUpdate{
+	background-color: rgba(0, 0, 0, 0.4);
+	color: white;
+	border: 1px solid white;
+	border-radius: 5px;
+	width: 100%;
+	padding: 10px;
+}
+
+.Update-title{
+	padding-bottom: 20px;
+	font-size: 20px;
+	display: table;
+}
+
+.btn-Update-info{
+	background-color: rgba(0, 191, 255, 0.5);
+	color: white;
+	padding: 10px;
+	border: none;
+	border-radius: 10px;
+	width: 40%;
+}
+
+.btn-Update-info:hover{
+	background-color: rgba(125, 125, 155, 0.5);
+}
+
+.cinema-management-page{
+	margin-top: 30px;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	height: auto;
+	color: white;
+	padding-bottom: 20px;
+	border: none;
+	border-radius: 20px;
+}
+
+.cinema-management-title{
+	font-size: 30px;
+	font-weight: bold;
+	padding-top: 40px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+.revenue-page{
+	margin-top: 50px;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	height: auto;
+	color: white;
+	padding-bottom: 20px;
+	border: none;
+	border-radius: 20px;
+}
+
+.revenue-title{
+	font-size: 30px;
+	font-weight: bold;
+	background-color: rgba(0, 0, 0, 0.5);
+	padding-top: 40px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+.btn-calculator{
+	background-color: rgba(0, 128, 0, 0.6);
+	padding: 10px;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+.btn-calculator:hover{
+	background-color: rgba(0, 0, 0, 0.6);
+	transition: 0.5s;
+}
+
+.form-revenue{
+	color: white;
+	background-color: black;
+	border: none;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+.form-revenue option{
+	color: white;
+	background-color: black;
+}
+
+.title-table{
+	color: white;
+	background-color: rgba(0, 0, 0, 0.6);
+	padding: 5px;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.cluster-cinema-title-table{
+	color: white;
+	background-color: rgba(0, 0, 0, 0.6);
+	padding: 10px;
+	font-weight: bold;
+	font-size: 18px;
+	border: none;
+	border-radius: 5px;
+}
+
+.cluster-cinema-title{
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.cluster-cinema{
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.btn-edit{
+	color: white;
+	background-color: rgba(0, 128, 0, 0.6);
+	padding: 5px;
+	width: 90px;
+	border: none;
+	border-radius: 10px;
+}
+
+.btn-remove{
+	color: white;
+	background-color: rgba(225, 0, 0, 0.6);
+	padding: 5px;
+	width: 90px;
+	border: none;
+	border-radius: 10px;
+}
+
+.btn-edit:hover, .btn-remove:hover{
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.update-cluster-cinema{
+	background-color: rgba(0, 0, 0, 0.3);
+	margin-top: 20px;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.update-cluster-cinema-body{
+	width: 90%;
+	margin: auto;
+}
+
+.btn-Update-cluster-cinema{
+	background-color: rgba(0, 191, 255, 0.5);
+	color: white;
+	padding: 10px;
+	border: none;
+	border-radius: 10px;
+	width: 20%;
+	margin-top: 20px;
+}
+
+.update-cluster-cinema-title{
+	font-size: 20px;
+	font-weight: bold;
+	padding: 20px;
+	width: 100%;
 }
