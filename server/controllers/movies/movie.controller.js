@@ -6,7 +6,7 @@ const Op = Sequelize.Op;
 
 const allMovie = async (req, res) => {
   let alert = "Here's all your movies.";
-  const movies = models.Movie.findAll({ limit: 15 });
+  const movies = await models.Movie.findAll({ limit: 15 });
   if (movies) {
     return res.send({ error: false, message: alert, movies });
   }
@@ -17,7 +17,7 @@ const allMovie = async (req, res) => {
 const getMovieByID = async (req, res) => {
   let alert = "Here's your selection movie";
   const { movieID } = req.body;
-  const movie = models.Movie.findOne({
+  const movie = await models.Movie.findOne({
     where: {
       movieID,
     },
@@ -32,7 +32,7 @@ const getMovieByID = async (req, res) => {
 const searchMovieByName = async (req, res) => {
   let alert = "Here's your selection movie";
   const { movieName } = req.body;
-  const movie = models.Movie.findAll({
+  const movie = await models.Movie.findAll({
     where: {
       nameMovie: {
         [Op.substring]: movieName,

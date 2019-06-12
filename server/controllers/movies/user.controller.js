@@ -2,7 +2,7 @@ const models = require('../../models');
 
 const allUser = async (req, res) => {
   let alert = "Here's your all user.";
-  const user = models.User.findAll();
+  const user = await models.User.findAll();
 
   if (user) {
     return res.send({ error: false, message: alert, user });
