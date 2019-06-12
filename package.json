@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "./node_modules/.bin/lint-staged",
-    "dev": "node ./source/server.js",
-    "server": "nodemon ./server/app.js"
+    "dev:client": "node ./source/server.js",
+    "dev:server": "nodemon ./server/app.js"
   },
   "keywords": [],
   "author": "",

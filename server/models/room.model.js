@@ -25,6 +25,8 @@ module.exports = (sequelize, Datatypes) => {
       type: Datatypes.INTEGER,
       allowNull: false,
     },
+  }, {
+    timestamps: false,
   });
 
   Room.associate = (models) => {
