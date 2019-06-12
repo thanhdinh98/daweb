@@ -24,6 +24,8 @@ module.exports = (sequelize, Datatypes) => {
       type: Datatypes.DATE,
       allowNull: false,
     },
+  }, {
+    timestamps: false,
   });
 
   Showtime.associate = (models) => {

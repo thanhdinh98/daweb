@@ -31,8 +31,9 @@ module.exports = (sequelize, Datatypes) => {
     },
     trailer: {
       type: Datatypes.STRING,
-      allowNull: false,
     },
+  }, {
+    timestamps: false,
   });
 
   return Movie;

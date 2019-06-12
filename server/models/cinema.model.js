@@ -12,6 +12,8 @@ module.exports = (sequelize, Datatypes) => {
     address: {
       type: Datatypes.STRING,
     },
+  }, {
+    timestamps: false,
   });
   return Cinema;
 };
