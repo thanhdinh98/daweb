@@ -1,7 +1,6 @@
 import * as _ from 'lodash';
 
 const checkEmpty = (...nodes) => {
-  // eslint-disable-next-line no-restricted-syntax
   for (const node of nodes) {
     if (_.isEmpty(node.value)) {
       return '<div class="text-danger">Please make sure no field is empty</div>';

@@ -1,12 +1,10 @@
-import image from './test.jpeg';
-
 const Movie = movie => `
-    <div class='item'>
-      <img src='${image}' class='img-fluid image' />
+    <div class='item' id='${movie.movieID}'>
+      <img src='${movie.poster}' class='img-fluid image' />
       <div class='content'>
-        <h4>${movie.title}</h4>
-        <div>${movie.name}</div>
-        <div>${movie.description}</div>
+        <h4>${movie.nameMovie}</h4>
+        <div>Genre: ${movie.genre}</div>
+        <div>Duration: ${movie.duration}</div>
       </div>
     </div>
   `;

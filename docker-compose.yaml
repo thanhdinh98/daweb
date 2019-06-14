@@ -8,8 +8,8 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - .:/daweb
-    working_dir: /daweb/
+      - ./server/:/daweb/server/
+    working_dir: /daweb/server/
     depends_on:
       - db
   db:

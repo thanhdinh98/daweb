@@ -6,9 +6,7 @@ const Seat = (style, id) => `
 const Seats = (rows, cols, selectedSeats) => {
   let count = 0;
   let seats = '';
-  // eslint-disable-next-line no-restricted-syntax
   for (let row = 0; row < rows; row += 1) {
-    // eslint-disable-next-line no-restricted-syntax
     for (let col = 0; col < cols; col += 1) {
       if (selectedSeats[count] === 0) {
         seats += Seat('btn-not-book', count);

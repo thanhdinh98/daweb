@@ -4,7 +4,8 @@ import BookingPage from '../components/pages/BookingPage';
 import Header from '../components/header';
 import Footer from '../components/footer';
 
-import bookingController from '../controllers/movie/booking';
+import movieAPI from '../controllers/movie';
+import { detailPageEvents } from '../controllers/events';
 
 const App = component => `
     <div>
@@ -14,25 +15,27 @@ const App = component => `
     </div>
   `;
 
-export default (basePath, path) => {
+export default async (basePath, path) => {
   const [, , id] = path.split('/');
 
   switch (path) {
     case `${basePath}/${id}/detail`: {
-      const movie = {
-        imageUrl: 'https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500',
-        title: 'Adventure end game',
-        genre: 'Science fiction.',
-        release: '20/3/2019',
-        duration: '180 minutes',
-        iframeUrl: 'https://www.youtube.com/embed/TcMBFSGVi1c',
-      };
-      document.querySelector('#main').innerHTML = App(DetailPage(movie));
+      const response = await movieAPI.getMovieByID(id);
+      if (response.error) {
+        location.href = '/';
+      }
+      document.querySelector('#main').innerHTML = App(DetailPage(response.movie));
+      detailPageEvents();
       break;
     }
     case `${basePath}/${id}/booking`: {
-      document.querySelector('#main').innerHTML = App(BookingPage({}));
-      bookingController.afterRender();
+      const response = await movieAPI.getMovieByID(id);
+      if (response.error) {
+        location.href = '/';
+      }
+      document.querySelector('#main').innerHTML = App(BookingPage({
+        movie: response.movie,
+      }));
       break;
     }
     default:

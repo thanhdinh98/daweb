@@ -1,14 +1,13 @@
 import HomePage from '../components/pages/HomePage';
 import AuthPage from '../components/pages/AuthPage';
 
-import movieControllers from '../controllers/movie';
 import authControllers from '../controllers/auth/index';
 
 import Header from '../components/header';
 import Footer from '../components/footer';
 
-// const { getListMovies } = movieControllers.beforeRender();
-
+import movieAPI from '../controllers/movie';
+import { homePageEvents } from '../controllers/events';
 
 const App = data => `
     <div>
@@ -18,47 +17,14 @@ const App = data => `
     </div>
   `;
 
-export default (basePath, path) => {
+export default async (basePath, path) => {
   switch (path) {
     case basePath: {
-      const data = {
-        movies: [
-          {
-            title: 'asfdgs',
-            name: 'adgf',
-            description: 'asfdgfs',
-          },
-          {
-            title: 'asfdgs',
-            name: 'adgf',
-            description: 'asfdgfs',
-          },
-          {
-            title: 'asfdgs',
-            name: 'adgf',
-            description: 'asfdgfs',
-          },
-          {
-            title: 'asfdgs',
-            name: 'adgf',
-            description: 'asfdgfs',
-          },
-          {
-            title: 'asfdgs',
-            name: 'adgf',
-            description: 'asfdgfs',
-          },
-        ],
-        hotMovie: {
-          title: 'asfdgs',
-          name: 'adgf',
-          description: 'asfdgfs',
-        },
-      };
-
-      document.querySelector('#main').innerHTML = App(data);
-      movieControllers.afterRender();
-
+      const response = await movieAPI.getAllMovies();
+      document.querySelector('#main').innerHTML = App({
+        movies: response.movies,
+      });
+      homePageEvents();
       break;
     }
     case '/login': {

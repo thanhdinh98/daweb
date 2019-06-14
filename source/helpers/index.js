@@ -1,7 +1,6 @@
 /* eslint-disable no-undef */
 const addQueries = (queries) => {
   let queryBody = '?';
-  // eslint-disable-next-line no-restricted-syntax
   for (const [query, value] of Object.entries(queries)) {
     queryBody += `${query}=${value}&`;
   }
@@ -14,7 +13,6 @@ const displayToast = (msg, options) => {
 };
 
 export {
-  // eslint-disable-next-line import/prefer-default-export
   addQueries,
   displayToast,
 };
