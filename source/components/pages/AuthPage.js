@@ -1,5 +1,5 @@
 import Field from '../Form/field';
-import SubmitButton from '../Button/formButton';
+import SubmitButton from '../Button/submitForm';
 
 const Login = () => `
     <div class="container-fluid login-container">

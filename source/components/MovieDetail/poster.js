@@ -1,9 +1,11 @@
-import BookingButton from '../Button/bookingButton';
+import BookingButton from '../Button/booking';
 
-const Image = imageURL => `
+import { ID } from '../../helpers/constants';
+
+const Image = (imageURL, movieID) => `
     <div class='text-center'>
       <img class="poster" src="${imageURL}">
-      ${BookingButton('bookingMovie')}
+      ${BookingButton(ID.BUTTON.BOOKING, movieID)}
     </div>
   `;
 

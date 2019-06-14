@@ -14,9 +14,22 @@ const END_POINTS = {
     SHOW_TIME: '/cinema',
     SEATS: '/cinema',
   },
+
+  MOVIE: {
+    GET_ALL: '/movie/all-movie',
+    GET_MOVIE_BY_ID: '/movie/get-movie-by-id',
+  },
+};
+
+const ID = {
+  BUTTON: {
+    BOOKING: 'booking',
+    SUBMIT_BOOK: 'submitBook',
+    SUMBIT_FORM: 'submitForm',
+  },
 };
 
 export {
-  // eslint-disable-next-line import/prefer-default-export
   END_POINTS,
+  ID,
 };
