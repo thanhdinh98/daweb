@@ -1,3 +1,6 @@
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '.env') });
+
 const express = require('express');
 const session = require('express-session');
 const cors = require('cors');
@@ -29,6 +32,8 @@ app.use(session({
 app.use('/api/account', require('./routes/account.route'));
 app.use('/api/movie', require('./routes/movie.route'));
 
-models.sequelize.sync({ force: true }).then(() => {
+const isForce = process.env.IS_FORCE === 'true';
+
+models.sequelize.sync({ force: isForce }).then(() => {
   app.listen(port);
 });
