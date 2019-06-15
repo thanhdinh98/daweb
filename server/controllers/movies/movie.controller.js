@@ -6,7 +6,21 @@ const Op = Sequelize.Op;
 
 const allMovie = async (req, res) => {
   let alert = "Here's all your movies.";
-  const movies = await models.Movie.findAll({ limit: 15 });
+  const movies = await models.Movie.findAll({
+    limit: 15,
+    include: [
+      {
+        attributes: [],
+        model: models.Showtime,
+        require: true,
+        where: {
+          startTime: {
+            [Op.gte]: Sequelize.fn('NOW'),
+          },
+        },
+      },
+    ],
+  });
   if (movies) {
     return res.send({ error: false, message: alert, movies });
   }
@@ -33,11 +47,10 @@ const searchMovieByName = async (req, res) => {
   let alert = "Here's your selection movie";
   const { movieName } = req.body;
   const movie = await models.Movie.findAll({
-    where: {
-      nameMovie: {
-        [Op.substring]: movieName,
-      },
-    },
+    where: Sequelize.where(
+      Sequelize.fn('lower', Sequelize.col('nameMovie')),
+      Sequelize.fn('lower', movieName),
+    ),
   });
 
 
