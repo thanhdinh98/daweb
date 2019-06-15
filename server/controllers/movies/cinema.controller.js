@@ -55,6 +55,7 @@ const getCinemaByMovieID = async (req, res) => {
   const { movieID } = req.query;
 
   const cinema = await models.Cinema.findAll({
+    attributes: [['cinemaID', 'id'], 'name'],
     include: [
       {
         model: models.Room,
