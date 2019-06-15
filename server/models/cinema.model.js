@@ -15,5 +15,12 @@ module.exports = (sequelize, Datatypes) => {
   }, {
     timestamps: false,
   });
+
+  Cinema.associate = (models) => {
+    Cinema.hasMany(models.Room, {
+      foreignKey: 'cinemaID',
+    });
+  };
+
   return Cinema;
 };

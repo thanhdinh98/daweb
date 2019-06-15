@@ -33,6 +33,10 @@ module.exports = (sequelize, Datatypes) => {
     Room.belongsTo(models.Cinema, {
       foreignKey: 'cinemaID',
     });
+
+    Room.hasMany(models.Showtime, {
+      foreignKey: 'roomID',
+    });
   };
 
   return Room;

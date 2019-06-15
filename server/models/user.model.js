@@ -29,5 +29,12 @@ module.exports = (sequelize, Datatypes) => {
       type: Datatypes.STRING,
     },
   });
+
+  User.associate = (models) => {
+    User.hasMany(models.Booking, {
+      foreignKey: 'userID',
+    });
+  };
+
   return User;
 };
