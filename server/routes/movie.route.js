@@ -13,11 +13,15 @@ const router = Router();
 router.post('/all-booking', bookingCtrl.allBooking);
 router.post('/all-cinema', cinemaCtrl.allCinema);
 router.post('/search-cinema-by-name', cinemaCtrl.searchCinemaByName);
+router.get('/get-cinema-by-movieID', cinemaCtrl.getCinemaByMovieID);
+router.post('/get-all-room-by-cinemaid', cinemaCtrl.getRoomByCinemaID);
 router.post('/all-movie', moviesCtrl.allMovie);
 router.post('/get-movie-by-id', moviesCtrl.getMovieByID);
 router.post('/search-movie-by-name', moviesCtrl.searchMovieByName);
 router.post('/all-room', roomCtrl.allRoom);
 router.post('/all-showtime', showtimeCtrl.allShowTime);
+// eslint-disable-next-line max-len
+// router.post('/search-showtime-of-movie-belong-to-cinema', showtimeCtrl.searchShowTimeOfMovieBelongToCinema);
 router.post('/all-ticket', ticketCtrl.allTicket);
 router.post('/all-user', userCtrl.allUser);
 
