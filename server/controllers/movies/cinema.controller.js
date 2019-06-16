@@ -1,5 +1,18 @@
 const models = require('../../models');
 
+const beatifyData = cinema => cinema.map((ci) => {
+  const time = [];
+  for (const room of ci.Rooms) {
+    time.push(...time, ...room.Showtimes);
+  }
+
+  return {
+    id: ci.cinemaID,
+    name: ci.name,
+    showtimes: time,
+  };
+});
+
 const allCinema = async (req, res) => {
   let alert = "Here's all your cinema.";
   const cinema = await models.Cinema.findAll();
@@ -55,17 +68,17 @@ const getCinemaByMovieID = async (req, res) => {
   const { movieID } = req.query;
 
   const cinema = await models.Cinema.findAll({
-    attributes: [['cinemaID', 'id'], 'name'],
+    attributes: ['cinemaID', 'name'],
     include: [
       {
         model: models.Room,
         require: true,
-        attributes: [],
+        attributes: ['cinemaID'],
         include: [
           {
             model: models.Showtime,
             require: true,
-            attributes: [],
+            attributes: ['startTime'],
             include: [
               {
                 model: models.Movie,
@@ -81,8 +94,11 @@ const getCinemaByMovieID = async (req, res) => {
       },
     ],
   });
+
+  const result = beatifyData(cinema);
+
   if (cinema) {
-    return res.send({ error: false, message: alert, cinema });
+    return res.send({ error: false, message: alert, result });
   }
   alert = 'Cannot find any cinema';
   return res.send({ error: true, message: alert });
