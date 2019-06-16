@@ -1,9 +1,12 @@
+const _ = require('lodash');
 const models = require('../../models');
 
 const beatifyData = cinema => cinema.map((ci) => {
   const time = [];
   for (const room of ci.Rooms) {
-    time.push(...time, ...room.Showtimes);
+    if (!_.isEmpty(room.Showtimes)) {
+      time.push(...time, ...room.Showtimes);
+    }
   }
 
   return {
@@ -12,6 +15,16 @@ const beatifyData = cinema => cinema.map((ci) => {
     showtimes: time,
   };
 });
+
+const removeCinemaWithEmptyShowtimes = (cinema) => {
+  const result = [];
+  for (const ci of cinema) {
+    if (!_.isEmpty(ci.showtimes)) {
+      result.push(ci);
+    }
+  }
+  return result;
+};
 
 const allCinema = async (req, res) => {
   let alert = "Here's all your cinema.";
@@ -89,13 +102,16 @@ const getCinemaByMovieID = async (req, res) => {
                 },
               },
             ],
+            where: {
+              movieID,
+            },
           },
         ],
       },
     ],
   });
 
-  const result = beatifyData(cinema);
+  const result = removeCinemaWithEmptyShowtimes(beatifyData(cinema));
 
   if (cinema) {
     return res.send({ error: false, message: alert, result });
