@@ -8,8 +8,7 @@ const login = async (req, res) => {
 
   if (!inputEmail || !inputPassword) {
     alert = 'Please fill out all required fields.';
-    res.send({ error: true, message: alert });
-    return;
+    return res.send({ error: true, message: alert });
   }
 
   const user = await models.User.findOne({
@@ -25,14 +24,13 @@ const login = async (req, res) => {
     const comparePassword = await bcrypt.compare(inputPassword, user.dataValues.password);
     if (comparePassword) {
       req.session.email = inputEmail; // req.session.optin -> option is any thing you want.
-      res.send({ error: false, user });
-    } else {
-      alert = "Your email or password didn't correct.";
-      res.send({ error: true, message: alert });
+      return res.send({ error: false, user });
     }
+    alert = "Your email or password didn't correct.";
+    return res.send({ error: true, message: alert });
   }
   alert = 'Your email has been used.';
-  res.send({ error: true, message: alert });
+  return res.send({ error: true, message: alert });
 };
 
 module.exports = { login };
