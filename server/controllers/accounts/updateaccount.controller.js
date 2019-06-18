@@ -9,7 +9,7 @@ const updateInfoUser = async (req, res) => {
   } = req.body;
 
   if (!password && !username && !phoneNumber) {
-    res.send({ error: true, message: 'Please fill out all requirement fields' });
+    return res.send({ error: true, message: 'Please fill out all requirement fields' });
   }
 
   const user = await User.findOne({
@@ -35,7 +35,7 @@ const updateInfoUser = async (req, res) => {
     ...dataUpdate,
   });
 
-  res.send({ error: false, message: 'Update data successful.' });
+  return res.send({ error: false, message: 'Update data successful.' });
 };
 
 module.exports = { updateInfoUser };
