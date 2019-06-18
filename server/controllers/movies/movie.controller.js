@@ -45,15 +45,16 @@ const getMovieByID = async (req, res) => {
 
 const searchMovieByName = async (req, res) => {
   let alert = "Here's your selection movie";
-  const { movieName } = req.body;
+  let { movieName } = req.body;
+  movieName = movieName.toLowerCase();
   const movie = await models.Movie.findAll({
     where: Sequelize.where(
       Sequelize.fn('lower', Sequelize.col('nameMovie')),
-      Sequelize.fn('lower', movieName),
+      {
+        [Op.substring]: movieName,
+      },
     ),
   });
-
-
   if (movie) {
     return res.send({ error: false, message: alert, movie });
   }
