@@ -9,11 +9,11 @@ const Seats = (rows, cols, selectedSeats) => {
   const temp = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
   for (let row = 0; row < rows; row += 1) {
-    for (let col = 1; col <= cols; col += 1) {
+    for (let col = 0; col < cols; col += 1) {
       if (selectedSeats[count] === 0) {
-        seats += Seat('btn-not-book', `${row} ${col}`, 'enabled', temp[row % 24] + col);
+        seats += Seat('btn-not-book', `${row} ${col}`, 'enabled', temp[row % 24] + (col + 1));
       } else {
-        seats += Seat('btn-booked', `${row} ${col}`, 'disabled', temp[row % 24] + col);
+        seats += Seat('btn-booked', `${row} ${col}`, 'disabled', temp[row % 24] + (col + 1));
       }
       count += 1;
     }

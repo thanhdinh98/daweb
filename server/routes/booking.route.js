@@ -28,7 +28,7 @@ router.post('/selected', async (req, res) => {
     seats[numberOrder] = 1;
   });
 
-  return res.send({ error: false, seats });
+  return res.send({ error: false, ...sizeRoom, seats });
 });
 
 

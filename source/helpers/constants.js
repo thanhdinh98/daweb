@@ -13,7 +13,7 @@ const END_POINTS = {
   BOOKING: {
     DATE_ON_CIMENA: '/cinema',
     SHOW_TIME: '/cinema',
-    SEATS: '/cinema',
+    SEATS: '/booking/selected',
   },
 
   MOVIE: {
