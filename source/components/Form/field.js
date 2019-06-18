@@ -1,4 +1,4 @@
-const Field = (label, type, placeHodler, id) => `
+const Field = (id, label, type, placeHodler) => `
     <div class="form-group">
       <label>${label}</label>
       <input type=${type} class="formInput" placeholder=${placeHodler} id=${id}>

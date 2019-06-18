@@ -5,7 +5,8 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 
 import movieAPI from '../controllers/movie';
-import { detailPageEvents } from '../controllers/events';
+import cinemaAPI from '../controllers/cinema';
+import { detailPageEvents, bookingPageEvents } from '../controllers/events';
 
 const App = component => `
     <div>
@@ -21,21 +22,21 @@ export default async (basePath, path) => {
   switch (path) {
     case `${basePath}/${id}/detail`: {
       const response = await movieAPI.getMovieByID(id);
-      if (response.error) {
-        location.href = '/';
-      }
       document.querySelector('#main').innerHTML = App(DetailPage(response.movie));
       detailPageEvents();
       break;
     }
     case `${basePath}/${id}/booking`: {
-      const response = await movieAPI.getMovieByID(id);
-      if (response.error) {
-        location.href = '/';
-      }
-      document.querySelector('#main').innerHTML = App(BookingPage({
-        movie: response.movie,
-      }));
+      Promise.all([
+        movieAPI.getMovieByID(id),
+        cinemaAPI.getCinemaBaseOnMovie(id),
+      ]).then((values) => {
+        document.querySelector('#main').innerHTML = App(BookingPage({
+          movie: values[0].movie,
+          cinema: values[1].result,
+        }));
+        bookingPageEvents();
+      });
       break;
     }
     default:

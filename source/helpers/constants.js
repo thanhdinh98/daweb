@@ -7,6 +7,7 @@ const END_POINTS = {
 
   CINEMA: {
     GET_ALL: '/cinema',
+    GET_CINEMA_BASE_ON_MOVIE: '/movie/get-cinema-by-movieID',
   },
 
   BOOKING: {
@@ -26,6 +27,17 @@ const ID = {
     BOOKING: 'booking',
     SUBMIT_BOOK: 'submitBook',
     SUMBIT_FORM: 'submitForm',
+  },
+
+  SELECT_FIELD: {
+    CINEMA: 'cinema',
+    DATE: 'date',
+    TIME: 'time',
+  },
+
+  RENDER_CONTENT: {
+    DATE_SELECT: 'dateSelect',
+    TIME_SELECT: 'timeSelect',
   },
 };
 

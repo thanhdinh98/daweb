@@ -1,7 +1,5 @@
 const SubmitBooking = id => `
-    <div>
-      <button class="btn-submit" id=${id}>Submit</button>
-    </div>
+    <button class="btn-submit" id=${id}>Submit</button>
   `;
 
 export default SubmitBooking;

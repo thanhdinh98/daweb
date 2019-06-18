@@ -9,10 +9,10 @@ import Footer from '../components/footer';
 import movieAPI from '../controllers/movie';
 import { homePageEvents } from '../controllers/events';
 
-const App = data => `
+const App = component => `
     <div>
       <div class='top-bar'>${Header()}</div>
-      <div>${HomePage(data)}</div>
+      <div>${component}</div>
       <div>${Footer()}</div>
     </div>
   `;
@@ -21,9 +21,9 @@ export default async (basePath, path) => {
   switch (path) {
     case basePath: {
       const response = await movieAPI.getAllMovies();
-      document.querySelector('#main').innerHTML = App({
+      document.querySelector('#main').innerHTML = App(HomePage({
         movies: response.movies,
-      });
+      }));
       homePageEvents();
       break;
     }

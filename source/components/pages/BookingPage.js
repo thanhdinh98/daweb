@@ -5,7 +5,7 @@ import SubmitBookButton from '../Button/submitBook';
 
 import { ID } from '../../helpers/constants';
 
-const BookingPage = ({ movie }) => `
+const BookingPage = ({ movie, cinema }) => `
   <div class="booking-page">
   <div class="booking-title">
     <span>Booking</span>
@@ -16,26 +16,10 @@ const BookingPage = ({ movie }) => `
   <center>
     <div class="row movie-booking-body">
       <div class="col-sm-4">
-  ${selectField({
-    id: 'cinema',
-    name: 'Cinema',
-    options: [{ name: 'Thanh', id: 1 }],
-  })}
+        ${selectField({ id: ID.SELECT_FIELD.CINEMA, name: 'Cinema', options: cinema })}
       </div>
-      <div class="col-sm-4">
-  ${selectField({
-    id: 'date',
-    name: 'Date',
-    options: [],
-  })}
-      </div>
-      <div class="col-sm-4">
-  ${selectField({
-    id: 'time',
-    name: 'Time',
-    options: [],
-  })}
-      </div>
+      <div class="col-sm-4" id='${ID.RENDER_CONTENT.DATE_SELECT}'></div>
+      <div class="col-sm-4" id='${ID.RENDER_CONTENT.TIME_SELECT}'></div>
     </div>
     <div>
       ${Seats()}
@@ -45,7 +29,9 @@ const BookingPage = ({ movie }) => `
       ${Guide('booking', 'guide-booking')}
       ${Guide('booked', 'guide-booked')}
     </div>
+    <div>
       ${SubmitBookButton(ID.BUTTON.SUBMIT_BOOK)}
+    </div>
   </center>
 </div>
   `;

@@ -1,5 +1,5 @@
 const NavBar = () => `
-  <div class='row'>
+  <div class='row navar'>
     <div class='col-2 d-flex align-items-center justify-content-center'>
       <span class='logo'>Code Gym</span>
     </div>
