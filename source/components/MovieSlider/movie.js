@@ -4,7 +4,7 @@ const Movie = movie => `
       <div class='content'>
         <h4>${movie.nameMovie}</h4>
         <div>Genre: ${movie.genre}</div>
-        <div>Duration: ${movie.duration}</div>
+        <div>Duration: ${`${movie.duration} minutes`}</div>
       </div>
     </div>
   `;

@@ -3,7 +3,7 @@ const Footer = () => `
 <div class = "row">
   <div class = "col-6 info">
     <center>
-        <span>&copy CodeGym</span>
+        <span>Copyright &copy CodeGym</span>
         <br>
         <div>
           <a class="href" href="#"><i class="fa fa-facebook-square"></i></i></a>

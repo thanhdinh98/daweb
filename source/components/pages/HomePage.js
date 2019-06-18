@@ -6,12 +6,8 @@ const HomePage = data => `
       <div class='col-3 search d-flex justify-content-center sidebar'>
         <div class='text-center mt-5'>
           <button class='btn-home-page'>Now showing</button>
-          <br>
-          <button class='btn-home-page'>Comming soon</button>
-          <br>
-          <button class='btn-home-page'>Booking</button>
           <br> 
-          <button class='btn-home-page'>Contact</button>
+          <button class='btn-home-page' onclick="window.location='/contact'">Contact</button>
         </div>
       </div>
       <div class='col-9 movie-main-content'>
