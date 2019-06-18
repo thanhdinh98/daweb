@@ -929,3 +929,7 @@ body {
   padding-bottom: 10px;
   font-weight: bold;
 }
+
+.info-movie{
+  padding: 0px 5px 5px 5px;
+}
