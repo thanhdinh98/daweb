@@ -1,20 +1,70 @@
 import * as _ from 'lodash';
 import moment from 'moment';
 import SelectFeild from '../../components/Form/selectField';
+import Seats from '../../components/Booking/seats';
+import SubmitBookButton from '../../components/Button/submitBook';
 import { ID } from '../../helpers/constants';
 import { ajaxRender, clearContent } from '../../helpers';
 
 export default () => {
+  const handleSeats = () => {
+    const tempArr = [];
+    for (const seat of document.getElementsByClassName('btn-not-book')) {
+      seat.onclick = () => {
+        const temp = seat.getAttribute('id').split(' ');
+
+        if ((typeof (Storage) !== 'undefined')) {
+          if (tempArr.length === 0) {
+            tempArr.push(temp);
+            document.getElementById(seat.getAttribute('id')).classList.add('btn-booking');
+            sessionStorage.setItem('arr', JSON.stringify(tempArr));
+          } else {
+            // eslint-disable-next-line no-unused-vars
+            let flag = 0;
+
+            tempArr.forEach((val, i) => {
+              if (val[0] === temp[0] && val[1] === temp[1]) {
+                flag = 1;
+                tempArr.splice(i, 1);
+              }
+            });
+
+            if (flag === 1) {
+              document.getElementById(seat.getAttribute('id')).classList.remove('btn-booking');
+            } else {
+              document.getElementById(seat.getAttribute('id')).classList.add('btn-booking');
+              tempArr.push(temp);
+            }
+            sessionStorage.setItem('arr', JSON.stringify(tempArr));
+          }
+        }
+      };
+    }
+  };
+
   const handleTime = () => {
     document.getElementById(ID.SELECT_FIELD.TIME).onchange = (e) => {
       const val = JSON.parse(e.target.value);
       console.log(val);
+      const seats = {
+        cols: 7,
+        rows: 3,
+        seats: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      };
+      ajaxRender({
+        id: ID.RENDER_CONTENT.SEATS,
+        component: Seats(seats.cols, seats.rows, seats.seats),
+        eventHandler: handleSeats,
+      });
     };
   };
 
   const handleDate = () => {
     document.getElementById(ID.SELECT_FIELD.DATE).onchange = (e) => {
-      clearContent(ID.RENDER_CONTENT.TIME_SELECT);
+      clearContent(
+        ID.RENDER_CONTENT.TIME_SELECT,
+        ID.RENDER_CONTENT.SEATS,
+      );
 
       const val = JSON.parse(e.target.value);
       const times = [];
@@ -41,6 +91,7 @@ export default () => {
     clearContent(
       ID.RENDER_CONTENT.DATE_SELECT,
       ID.RENDER_CONTENT.TIME_SELECT,
+      ID.RENDER_CONTENT.SEATS,
     );
 
     const dates = new Set();
@@ -61,5 +112,12 @@ export default () => {
       }),
       eventHandler: handleDate,
     });
+  };
+
+  document.getElementById('btn-booking').innerHTML = SubmitBookButton(ID.BUTTON.SUBMIT_BOOK);
+  const eventButton = document.getElementById(ID.BUTTON.SUBMIT_BOOK);
+  eventButton.onclick = () => {
+    const result = JSON.parse(sessionStorage.getItem('arr'));
+    alert(result);
   };
 };

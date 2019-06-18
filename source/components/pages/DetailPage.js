@@ -24,7 +24,7 @@ const DetailPage = movie => `
             <br>
             ${InfoField('Release', moment(movie.release).format('L'))}
             <br>
-            ${InfoField('Time', movie.duration)}
+            ${InfoField('Time', `${movie.duration} minutes`)}
             </div>
           <div class='trailer text-center'>
             ${Trailer(movie.trailer)}

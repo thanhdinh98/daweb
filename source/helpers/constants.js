@@ -38,6 +38,7 @@ const ID = {
   RENDER_CONTENT: {
     DATE_SELECT: 'dateSelect',
     TIME_SELECT: 'timeSelect',
+    SEATS: 'seats',
   },
 };
 

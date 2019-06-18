@@ -1,5 +1,6 @@
 import HomePage from '../components/pages/HomePage';
 import AuthPage from '../components/pages/AuthPage';
+import UpdateUserPage from '../components/pages/UpdatePage';
 
 import authControllers from '../controllers/auth/index';
 
@@ -8,6 +9,8 @@ import Footer from '../components/footer';
 
 import movieAPI from '../controllers/movie';
 import { homePageEvents } from '../controllers/events';
+
+import ContactPage from '../components/pages/ContactPage';
 
 const App = component => `
     <div>
@@ -39,6 +42,14 @@ export default async (basePath, path) => {
     }
     case '/forgot': {
       document.querySelector('#main').innerHTML = AuthPage.Forgot();
+      break;
+    }
+    case '/update-user': {
+      document.querySelector('#main').innerHTML = App(UpdateUserPage());
+      break;
+    }
+    case '/contact': {
+      document.querySelector('#main').innerHTML = App(ContactPage());
       break;
     }
     case '/logout': {
