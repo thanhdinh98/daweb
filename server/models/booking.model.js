@@ -20,6 +20,8 @@ module.exports = (sequelize, Datatypes) => {
       type: Datatypes.INTEGER,
       allowNull: false,
     },
+  }, {
+    timestamps: false,
   });
 
   Booking.associate = (models) => {

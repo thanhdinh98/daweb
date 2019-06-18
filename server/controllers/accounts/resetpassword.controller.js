@@ -13,7 +13,7 @@ const sendLinkResetPassword = async (req, res) => {
   });
 
   if (!user) {
-    res.end({ error: true, message: 'WARNING: System occurs a authencation problem!!!' });
+    return res.end({ error: true, message: 'WARNING: System occurs a authencation problem!!!' });
   }
 
   const domain = process.env.DOMAIN || 'http:localhost:5000/';

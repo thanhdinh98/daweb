@@ -31,6 +31,7 @@ app.use(session({
 // using route
 app.use('/api/account', require('./routes/account.route'));
 app.use('/api/movie', require('./routes/movie.route'));
+app.use('/api/booking', require('./routes/booking.route'));
 
 const isForce = process.env.IS_FORCE === 'true';
 
