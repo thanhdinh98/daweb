@@ -13,7 +13,6 @@ const ListMovies = (movies) => {
   const listSlides = [];
   let listMovies = '';
   let firstMovieIndex = 0;
-  // eslint-disable-next-line no-restricted-syntax
   for (const [index, movie] of movies.entries()) {
     listMovies += Movie(movie);
     if ((index - firstMovieIndex) === 3) {

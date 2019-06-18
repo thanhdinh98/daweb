@@ -36,7 +36,7 @@ const register = () => {
           inputEmail: email.value,
           inputPassword: password.value,
           inputConfirmPassword: confirmPassword.value,
-          name: name.value,
+          username: name.value,
           phoneNumber: phoneNumber.value,
           permission: 1,
         },

@@ -12,7 +12,20 @@ const displayToast = (msg, options) => {
   $('.toast').toast(options).toast('show');
 };
 
+const ajaxRender = ({ id, component, eventHandler }) => {
+  document.getElementById(id).innerHTML = component;
+  eventHandler();
+};
+
+const clearContent = (...ids) => {
+  for (const id of ids) {
+    document.getElementById(id).innerHTML = '';
+  }
+};
+
 export {
   addQueries,
   displayToast,
+  ajaxRender,
+  clearContent,
 };
