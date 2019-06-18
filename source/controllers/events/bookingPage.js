@@ -6,6 +6,8 @@ import SubmitBookButton from '../../components/Button/submitBook';
 import { ID } from '../../helpers/constants';
 import { ajaxRender, clearContent } from '../../helpers';
 
+import bookingAPI from '../booking';
+
 export default () => {
   const handleSeats = () => {
     const tempArr = [];
@@ -43,17 +45,14 @@ export default () => {
   };
 
   const handleTime = () => {
-    document.getElementById(ID.SELECT_FIELD.TIME).onchange = (e) => {
+    document.getElementById(ID.SELECT_FIELD.TIME).onchange = async (e) => {
+      clearContent(ID.RENDER_CONTENT.SEATS);
       const val = JSON.parse(e.target.value);
-      console.log(val);
-      const seats = {
-        cols: 7,
-        rows: 3,
-        seats: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      };
+
+      const seats = await bookingAPI.getSeatsMovie(val.value);
       ajaxRender({
         id: ID.RENDER_CONTENT.SEATS,
-        component: Seats(seats.cols, seats.rows, seats.seats),
+        component: Seats(seats.columnSize, seats.rowSize, seats.seats),
         eventHandler: handleSeats,
       });
     };
@@ -71,7 +70,7 @@ export default () => {
       for (const time of val.times) {
         times.push({
           name: moment(time).format('LT'),
-          value: time.startTime,
+          value: time.showtimeID,
         });
       }
 

@@ -91,7 +91,7 @@ const getCinemaByMovieID = async (req, res) => {
           {
             model: models.Showtime,
             require: true,
-            attributes: ['startTime'],
+            attributes: ['showtimeID', 'startTime'],
             include: [
               {
                 model: models.Movie,
