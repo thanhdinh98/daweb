@@ -1,5 +1,5 @@
 import appRoutes from './app';
-import detailRoutes from './movie';
+import movieRoutes from './movie';
 
 export default () => {
   const { pathname } = location;
@@ -7,7 +7,7 @@ export default () => {
 
   switch (basePath) {
     case 'movie': {
-      detailRoutes('/movie', pathname);
+      movieRoutes('/movie', pathname);
       break;
     }
     default:

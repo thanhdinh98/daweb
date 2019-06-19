@@ -1,5 +1,5 @@
-const Button = (type, id, value) => `
-    <button type="submit" class="${type}" id=${id}>${value}</button>
+const Button = (type, value, movieID) => `
+    <button type="submit" class="${type}" data-id=${movieID}>${value}</button>
   `;
 
 export default Button;

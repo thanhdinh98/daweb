@@ -23,9 +23,16 @@ const clearContent = (...ids) => {
   }
 };
 
+const handleEvents = (...events) => {
+  for (const event of events) {
+    event();
+  }
+};
+
 export {
   addQueries,
   displayToast,
   ajaxRender,
   clearContent,
+  handleEvents,
 };
