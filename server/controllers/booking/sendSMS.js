@@ -19,7 +19,6 @@ async function sendSMS(receiver, content, secret = '5dc05865e4', apiid = '54c78d
     body: data,
     json: true,
   }, (error, response, body) => {
-    console.log(response);
   });
 }
 

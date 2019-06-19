@@ -93,7 +93,7 @@ const getPhoneNumber = async (userID) => {
 };
 
 const bookingMovie = async (req, res) => {
-  const userID = req.currentUser;
+  const userID = res.locals.user.userID;
   const { showtimeID, seats } = req.body;
 
   const isValid = await isValidShowtimeBooking(showtimeID);
@@ -152,25 +152,28 @@ const bookingMovie = async (req, res) => {
 
 
   // after inserted successfull - send sms
-  let content = 'Thanks for your booking. Your seat: ';
-  seats.forEach((seat) => {
-    const beautifulSeat = String.fromCharCode((`${seat[0]}`).charCodeAt(0) + 16);
-    content += beautifulSeat;
-    content += ', ';
-  });
-  content = content.slice(0, content.length - 2);
-  const phoneNumber = await getPhoneNumber(userID);
-  if (phoneNumber) {
-    sendSMS(phoneNumber, content);
-  }
+  // let content = 'Codegym - Cinema.\nThanks for your booking.\nYour seat: ';
+  // seats.forEach((seat) => {
+  //   const beautifulSeat = String.fromCharCode((`${seat[0]}`).charCodeAt(0) + 17);
+  //   content += beautifulSeat;
+  //   content += seat[1];
+  //   content += ', ';
+  // });
+  // content = content.slice(0, content.length - 2);
+  // content += '.';
+  // const phoneNumber = await getPhoneNumber(userID);
+  // if (phoneNumber) {
+  //   sendSMS(phoneNumber, content);
+  // }
 
   return res.send({ error: false, message: 'Booking successfull.' });
 };
 
 const bookingMovieTransaction = async (req, res) => {
-  const { userID, showtimeID, seats } = req.body;
+  const userID = res.locals.user.userID;
+  const { showtimeID, seats } = req.body;
 
-  const isValid = isValidShowtimeBooking(showtimeID);
+  const isValid = await isValidShowtimeBooking(showtimeID);
   if (!isValid) {
     return res.send({ error: true, message: 'Invalid Showtime or Showtime was end.' });
   }
