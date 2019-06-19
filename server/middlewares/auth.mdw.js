@@ -15,9 +15,14 @@ const authClient = async (req, res, next) => {
     if (!user) {
       next();
     } else {
-      req.session.emailuser = email;
-      req.currentUser = user.userID;
-      res.locals.currentUser = user;
+      const rawUser = {
+
+        userID: user.userID,
+        email: user.email,
+        username: user.username,
+        permission: user.permission,
+      };
+      res.locals.user = rawUser;
       next();
     }
   }
@@ -32,15 +37,20 @@ const authAdmin = async (req, res, next) => {
     const user = await models.User.findOne({
       where: {
         email,
-        permission: 2,
+        permission: 1,
       },
     });
     if (!user) {
       next();
     } else {
-      req.session.emailuser = email;
-      req.currentUser = user.userID;
-      res.locals.currentUser = user;
+      const rawUser = {
+
+        userID: user.userID,
+        email: user.email,
+        username: user.username,
+        permission: user.permission,
+      };
+      res.locals.user = rawUser;
       next();
     }
   }

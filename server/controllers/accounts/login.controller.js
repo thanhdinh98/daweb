@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable prefer-destructuring */
 const bcrypt = require('bcryptjs');
 const models = require('../../models');
 
@@ -24,6 +26,7 @@ const login = async (req, res) => {
     const comparePassword = await bcrypt.compare(inputPassword, user.dataValues.password);
     if (comparePassword) {
       req.session.email = inputEmail; // req.session.optin -> option is any thing you want.
+      req.session.vudao = 'daovunguyen';
       return res.send({
         error: false,
         user: { email: user.email, username: user.username, permission: user.permission },

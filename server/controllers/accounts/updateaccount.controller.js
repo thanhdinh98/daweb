@@ -1,10 +1,11 @@
+/* eslint-disable prefer-destructuring */
 const bcrypt = require('bcryptjs');
 const models = require('../../models');
 
 const saltRound = 10;
 
 const updateInfoUser = async (req, res) => {
-  const userID = req.currentUser;
+  const userID = res.locals.user.userID;
   const {
     password, username, phoneNumber,
   } = req.body;
