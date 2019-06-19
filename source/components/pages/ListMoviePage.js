@@ -16,7 +16,7 @@ const ListMoviePage = data => `
   <div class="col-sm-9">
     <center>
       <div class="d-flex flex-wrap body-list-movie">
-        ${ListMovie}
+        ${ListMovie(data)}
       </div>
     </center>
   </div>
