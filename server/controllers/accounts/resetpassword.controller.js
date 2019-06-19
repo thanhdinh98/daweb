@@ -16,11 +16,12 @@ const sendLinkResetPassword = async (req, res) => {
     return res.end({ error: true, message: 'WARNING: System occurs a authencation problem!!!' });
   }
 
-  const domain = process.env.DOMAIN || 'http:localhost:5000/';
-  let content = `${domain}/api/account/reset?email=${email}&token=${user.token}`;
+  const domain = process.env.DOMAIN || 'http://localhost:5000/';
+
+  let content = `<a href="${domain}/api/account/reset?email=${email}&token=${user.token}">here</a>`;
   content = `Click this link to reset password: ${content}`;
 
-  await sendEmail(email, "CodeGym's CINEMA - Reset Password", content, '');
+  await sendEmail(email, "CodeGym's CINEMA - Reset Password", '', content);
   return res.send({ error: false, message: 'Please check email to reset password.' });
 };
 

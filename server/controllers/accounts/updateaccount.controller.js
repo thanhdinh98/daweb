@@ -1,18 +1,18 @@
 const bcrypt = require('bcryptjs');
-const User = require('../../models/user.model').default;
+const models = require('../../models');
 
 const saltRound = 10;
 
 const updateInfoUser = async (req, res) => {
+  const userID = req.currentUser;
   const {
-    userID, password, username, phoneNumber,
+    password, username, phoneNumber,
   } = req.body;
 
   if (!password && !username && !phoneNumber) {
     return res.send({ error: true, message: 'Please fill out all requirement fields' });
   }
-
-  const user = await User.findOne({
+  const user = await models.User.findOne({
     where: {
       userID,
     },
