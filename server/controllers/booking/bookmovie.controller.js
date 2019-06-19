@@ -10,6 +10,10 @@ const Op = db.Sequelize.Op;
 
 // return true if showtime exists, startime > now()
 const isValidShowtimeBooking = async (showtimeID) => {
+  if (!showtimeID) {
+    return false;
+  }
+
   const showtime = await models.Showtime.findOne({
     where: {
       showtimeID,
@@ -89,12 +93,14 @@ const getPhoneNumber = async (userID) => {
 };
 
 const bookingMovie = async (req, res) => {
-  const { userID, showtimeID, seats } = req.body;
+  const userID = req.currentUser;
+  const { showtimeID, seats } = req.body;
 
-  const isValid = isValidShowtimeBooking(showtimeID);
+  const isValid = await isValidShowtimeBooking(showtimeID);
   if (!isValid) {
     return res.send({ error: true, message: 'Invalid Showtime or Showtime was end.' });
   }
+
   const sizeRoomOfShowtime = await getSizeOfRoom(showtimeID);
 
   // check seat is valid
@@ -146,17 +152,17 @@ const bookingMovie = async (req, res) => {
 
 
   // after inserted successfull - send sms
-  // let content = 'Thanks for your booking. Your seat: ';
-  // seats.forEach((seat) => {
-  //   const beautifulSeat = String.fromCharCode((`${seat[0]}`).charCodeAt(0) + 16);
-  //   content += beautifulSeat;
-  //   content += ', ';
-  // });
-  // content = content.slice(0, content.length - 2);
-  // const phoneNumber = await getPhoneNumber(userID);
-  // if(phoneNumber){
-  // // sendSMS(phoneNumber, content);
-  // }
+  let content = 'Thanks for your booking. Your seat: ';
+  seats.forEach((seat) => {
+    const beautifulSeat = String.fromCharCode((`${seat[0]}`).charCodeAt(0) + 16);
+    content += beautifulSeat;
+    content += ', ';
+  });
+  content = content.slice(0, content.length - 2);
+  const phoneNumber = await getPhoneNumber(userID);
+  if (phoneNumber) {
+    sendSMS(phoneNumber, content);
+  }
 
   return res.send({ error: false, message: 'Booking successfull.' });
 };
@@ -236,11 +242,32 @@ const bookingMovieTransaction = async (req, res) => {
   // sendSMS(phoneNumber, content);
 };
 
+const selectedShowtime = async (req, res) => {
+  const { showtimeID } = req.body;
+
+  const isShowtime = await isValidShowtimeBooking(showtimeID);
+
+  if (isShowtime === false) {
+    return res.send({ error: true, message: 'Invalid showtime.' });
+  }
+
+  const sizeRoom = await getSizeOfRoom(showtimeID);
+  // 0. empty
+  // 1. booked
+  const seats = Array(sizeRoom.rowSize * sizeRoom.columnSize).fill(0);
+
+  const selectedSeat = await getSelectedSeatOfShowtime(showtimeID);
+
+  selectedSeat.forEach((seat) => {
+    const numberOrder = seat[0] * sizeRoom.columnSize + seat[1] - 1;
+    seats[numberOrder] = 1;
+  });
+
+  return res.send({ error: false, ...sizeRoom, seats });
+};
 
 module.exports = {
   bookingMovie,
   bookingMovieTransaction,
-  getSelectedSeatOfShowtime,
-  getSizeOfRoom,
-  isValidShowtimeBooking,
+  selectedShowtime,
 };

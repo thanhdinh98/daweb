@@ -6,6 +6,8 @@ const session = require('express-session');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const models = require('./models');
+const authenticate = require('./middlewares/auth.mdw');
+const restricted = require('./middlewares/restricted.mdw');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -28,11 +30,15 @@ app.use(session({
   cookie: { maxAge: 1000 * 60 * 60 * 24 },
 }));
 
+app.use(authenticate.authClient);
+app.use(authenticate.authAdmin);
+
 // using route
 app.use('/api/account', require('./routes/account.route'));
 app.use('/api/movie', require('./routes/movie.route'));
+app.use('/api/manager', restricted, require('./routes/manage.route'));
 app.use('/api/booking', require('./routes/booking.route'));
-app.use('/api/manager', require('./routes/manage.route'));
+
 
 const isForce = process.env.IS_FORCE === 'true';
 
