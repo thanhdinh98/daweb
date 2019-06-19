@@ -3,6 +3,7 @@ const END_POINTS = {
     LOGIN: '/account/login',
     REGISTER: '/account/register',
     LOGOUT: '/account/logout',
+    IS_LOGIN: '/account/isLogin',
   },
 
   CINEMA: {
@@ -19,14 +20,22 @@ const END_POINTS = {
   MOVIE: {
     GET_ALL: '/movie/all-movie',
     GET_MOVIE_BY_ID: '/movie/get-movie-by-id',
+    SEARCH_MOVIE: '/movie/search-movie-by-name',
+    GET_MOVIE_BY_GENRE: '/movie/get-movie-by-genre',
   },
 };
 
 const ID = {
   BUTTON: {
-    BOOKING: 'booking',
-    SUBMIT_BOOK: 'submitBook',
-    SUMBIT_FORM: 'submitForm',
+    BOOKING: 'bookingButton',
+    SUBMIT_BOOK: 'submitBookButton',
+    SUMBIT_FORM: 'submitFormButton',
+    DETAIL: 'detailButton',
+    SEARCH: 'searchButton',
+  },
+
+  VALUE: {
+    SEARCH: 'searchValue',
   },
 
   SELECT_FIELD: {

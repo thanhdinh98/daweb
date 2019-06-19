@@ -13,4 +13,18 @@ export default {
       movieID: id,
     },
   }),
+
+  getMovieByName: searchString => services.send(END_POINTS.MOVIE.SEARCH_MOVIE, {
+    type: 'params',
+    body: {
+      movieName: searchString,
+    },
+  }),
+
+  getMovieByGenre: genre => services.send(END_POINTS.MOVIE.GET_MOVIE_BY_GENRE, {
+    type: 'params',
+    body: {
+      genre,
+    },
+  }),
 };
