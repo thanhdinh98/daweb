@@ -31,7 +31,7 @@ const isValidShowtimeBooking = async (showtimeID) => {
 
 // function return the capacity of room where movie is showed
 const getSizeOfRoom = async (showtimeID) => {
-  const room = await db.sequelize.query('SELECT "rowSize", "columnSize" FROM "Showtimes" AS "st" JOIN "Rooms" AS "r" ON "st"."roomID" = "r"."roomID" AND "showtimeID" = :ID',
+  const room = await db.sequelize.query('SELECT "rowSize", "columnSize", "r"."name", "r"."type" FROM "Showtimes" AS "st" JOIN "Rooms" AS "r" ON "st"."roomID" = "r"."roomID" AND "showtimeID" = :ID',
     { replacements: { ID: showtimeID }, type: db.sequelize.QueryTypes.SELECT });
 
   return room[0];
@@ -113,7 +113,7 @@ const bookingMovie = async (req, res) => {
     if (seat[1] < 0 || seat[1] >= sizeRoomOfShowtime.columnSize
        || seat[0] < 0 || seat[0] >= sizeRoomOfShowtime.rowSize) {
       return res.send({
-        error: true, message: 'Invalid Seat', seat, sizeRoomOfShowtime,
+        error: true, message: 'Invalid Seat', seat,
       });
     }
   }
@@ -166,7 +166,9 @@ const bookingMovie = async (req, res) => {
   //   sendSMS(phoneNumber, content);
   // }
 
-  return res.send({ error: false, message: 'Booking successfull.' });
+  return res.send({
+    error: false, message: 'Booking successful.', room: sizeRoomOfShowtime.name, type: sizeRoomOfShowtime.type,
+  });
 };
 
 const bookingMovieTransaction = async (req, res) => {
