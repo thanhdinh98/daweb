@@ -1,0 +1,3 @@
+userID,email,password,username,phoneNumber,permission,token,createdAt,updatedAt
+1,test1@gmail.com,$2a$10$6.1.EoBo.PmZJv9uOYbAY.18tXhNWq2RCAgXMqt0c6W3981JG9JrC,test1,1234567890,1,8wcjr5897pt,2019-06-19 11:40:13.756+07,2019-06-19 11:40:13.756+07
+2,test2@gmail.com,$2a$10$Gsw8esF.wU9eAvyF2q.J5uEaj0hPAL9y0GdS/xcq9.7HRKARmwEo2,test2,123456789,2,ifvfeo3a2u,2019-06-19 11:41:10.181+07,2019-06-19 11:41:10.181+07
