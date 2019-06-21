@@ -43,6 +43,7 @@ const beautifulHistory = async (history) => {
   for (const [key, value] of Object.entries(groupedHistory)) {
     const obj = {};
     obj.timeBooking = key;
+
     obj.nameMovie = value[0].nameMovie;
     obj.address = value[0].address;
     obj.room = value[0].room;
