@@ -4,15 +4,43 @@ import SelectFeild from '../../components/Form/selectField';
 import Seats from '../../components/Booking/seats';
 import SubmitBookButton from '../../components/Button/submitBook';
 import { ID } from '../../helpers/constants';
-import { ajaxRender, clearContent } from '../../helpers';
+import { ajaxRender, clearContent, displayToast } from '../../helpers';
 
 import bookingAPI from '../booking';
+import accountAPI from '../account';
 
 export default () => {
+  let stID = null;
+
+  const sumbitHandler = () => {
+    document.getElementById(ID.BUTTON.SUBMIT_BOOK).onclick = async () => {
+      const user = await accountAPI.isLogin();
+      if (user.error) {
+        location.href = '/account/login';
+      } else {
+        const seats = JSON.parse(sessionStorage.getItem('arr'));
+        if (!_.isEmpty(stID)) {
+          const response = await bookingAPI.booking(stID, seats);
+          if (!response.error) {
+            location.href = '/account/tickets';
+          } else {
+            displayToast(response.message, { delay: 3000 });
+          }
+        }
+      }
+    };
+  };
+
   const handleSeats = () => {
     const tempArr = [];
+    sessionStorage.removeItem('arr');
     for (const seat of document.getElementsByClassName('btn-not-book')) {
       seat.onclick = () => {
+        ajaxRender({
+          id: 'btn-booking',
+          component: SubmitBookButton(ID.BUTTON.SUBMIT_BOOK),
+          eventHandler: sumbitHandler,
+        });
         const temp = seat.getAttribute('id').split(' ');
 
         if ((typeof (Storage) !== 'undefined')) {
@@ -50,6 +78,7 @@ export default () => {
       const val = JSON.parse(e.target.value);
 
       const seats = await bookingAPI.getSeatsMovie(val.value);
+      stID = val.value;
       ajaxRender({
         id: ID.RENDER_CONTENT.SEATS,
         component: Seats(seats.columnSize, seats.rowSize, seats.seats),
@@ -111,12 +140,5 @@ export default () => {
       }),
       eventHandler: handleDate,
     });
-  };
-
-  document.getElementById('btn-booking').innerHTML = SubmitBookButton(ID.BUTTON.SUBMIT_BOOK);
-  const eventButton = document.getElementById(ID.BUTTON.SUBMIT_BOOK);
-  eventButton.onclick = () => {
-    const result = JSON.parse(sessionStorage.getItem('arr'));
-    alert(result);
   };
 };

@@ -8,4 +8,12 @@ export default {
       showtimeID,
     },
   }),
+
+  booking: (showtimeID, seats) => services.send(END_POINTS.BOOKING.BOOKING, {
+    type: 'json',
+    body: {
+      showtimeID,
+      seats,
+    },
+  }),
 };
