@@ -1,13 +1,15 @@
 import AuthPage from '../components/pages/AuthPage';
 import UpdateUserPage from '../components/pages/UpdatePage';
 import TicketHistory from '../components/pages/TicketPage';
+import ResetpassPage from '../components/pages/ResetpassPage';
+
 import Header from '../components/header';
 import Footer from '../components/footer';
 
 import authControllers from '../controllers/auth/index';
 import accountAPI from '../controllers/account';
 
-import { headerEvents, updatePageEvents } from '../controllers/events';
+import { headerEvents, updatePageEvents, resetpassEvents } from '../controllers/events';
 import { handleEvents, displayToast } from '../helpers';
 
 const App = (user, component) => `
@@ -58,6 +60,7 @@ export default async (basePath, path) => {
         location.href = '/';
       }
       document.querySelector('#main').innerHTML = AuthPage.Forgot();
+      authControllers.forgot();
       break;
     }
     case `${basePath}/verify`: {
@@ -81,6 +84,17 @@ export default async (basePath, path) => {
       }
       const history = await accountAPI.getTicketHistory();
       document.querySelector('#main').innerHTML = App(user, TicketHistory(history));
+      break;
+    }
+    case `${basePath}/reset`: {
+      const email = params.get('email');
+      const token = params.get('token');
+      if (!email || !token) {
+        location.href = '/';
+      } else {
+        document.querySelector('#main').innerHTML = ResetpassPage();
+        handleEvents(resetpassEvents);
+      }
       break;
     }
     default:

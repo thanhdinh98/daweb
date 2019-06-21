@@ -27,7 +27,7 @@ const sendLinkResetPassword = async (req, res) => {
 };
 
 const resetPassword = async (req, res) => {
-  const { email, token } = req.query;
+  const { email, token } = req.body;
   const user = await model.User.findOne({
     where: {
       email,
@@ -44,7 +44,7 @@ const resetPassword = async (req, res) => {
   const { password } = req.body;
   const newToken = Math.random().toString(36).substring(2);
   await bcrypt.hash(password, saltRound).then(async (hash) => {
-    model.User.update({
+    await user.update({
       password: hash,
       token: newToken,
     });

@@ -89,7 +89,31 @@ const login = () => {
 };
 
 const forgot = () => {
+  document.querySelector('#forgot-passwordButton').onclick = () => {
+    let errorString = '';
 
+    const email = document.querySelector('#email');
+
+    errorString += checkEmpty(email);
+    errorString += checkVaildEmail(email.value);
+
+    if (!_.isEmpty(errorString)) {
+      displayToast(errorString, { delay: 3000 });
+    } else {
+      services.send(END_POINTS.ACCOUNT.RESET_PASS, {
+        type: 'params',
+        body: {
+          email: email.value,
+        },
+      })
+        .then((data) => {
+          displayToast(data.message, { delay: 3000 });
+        })
+        .catch((err) => {
+          displayToast(err, { delay: 3000 });
+        });
+    }
+  };
 };
 
 export default {
