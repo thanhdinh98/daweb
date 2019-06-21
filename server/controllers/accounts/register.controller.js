@@ -54,8 +54,8 @@ const register = async (req, res) => {
     });
   });
 
-  const domain = process.env.DOMAIN || 'http://localhost:5000';
-  let content = `<a href="${domain}/api/account/verify?email=${inputEmail}&token=${tokenGen}">here</a>`;
+  const domain = process.env.DOMAIN || 'http://localhost:5000/api';
+  let content = `<a href="${domain}/account/verify?email=${inputEmail}&token=${tokenGen}">here</a>`;
   content = `Click this link to verify account: ${content}`;
 
   await sendEmail(inputEmail, "CodeGym's CINEMA - Account Verification", '', content);

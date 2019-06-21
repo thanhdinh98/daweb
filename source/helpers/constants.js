@@ -3,7 +3,8 @@ const END_POINTS = {
     LOGIN: '/account/login',
     REGISTER: '/account/register',
     LOGOUT: '/account/logout',
-    IS_LOGIN: '/account/isLogin',
+    IS_LOGIN: '/account/whoami',
+    VERIFY: '/account/verify',
   },
 
   CINEMA: {

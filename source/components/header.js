@@ -1,11 +1,12 @@
-import * as _ from 'lodash';
 import { ID } from '../helpers/constants';
 
 const NavBar = (user) => {
-  let userName = `<a class="sign-in"  href='/login'>Sign In</span>
-                  <a class="sign-in"  href='/register'>Register</a>`;
-  if (!_.isEmpty(user)) {
-    userName = `<a class="sign-in"  href='/update-user'>${user.name}</a>`;
+  let userName = `<a class="sign-in"  href='/account/login'>Sign In</span>
+                  <a class="sign-in"  href='/account/register'>Register</a>`;
+  if (!user.error) {
+    userName = `<a class='sign-in' href='/account/tickets'><i class="fas fa-shopping-cart"></i></a>
+                <a class="sign-in"  href='/account/update'>${user.user.username}</a>
+                <a class="sign-in"  href='/account/logout'>Logout</a>`;
   }
 
   return `
@@ -13,7 +14,7 @@ const NavBar = (user) => {
     <div class='col-2 d-flex align-items-center justify-content-center'>
       <span class='logo'>Code Gym</span>
     </div>
-    <div class='col-7 nav justify-content-start align-content-center'>
+    <div class='col-6 nav justify-content-start align-content-center'>
       <a href='/' class='active'><li>Home</li></a>
       <div class='row' style="padding-left:20px;">
         <div class='col-sm-8'>
@@ -24,7 +25,7 @@ const NavBar = (user) => {
         </div>
       </div>
     </div>
-    <div class='col-3 right-panel nav justify-content-end align-items-center'>
+    <div class='col-4 right-panel nav justify-content-end align-items-center'>
       ${userName}
       <div class='hotline text-center'>
         <h5 class='phone'>086 981 2198</h5>

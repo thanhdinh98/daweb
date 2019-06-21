@@ -38,12 +38,13 @@ const register = () => {
           inputConfirmPassword: confirmPassword.value,
           username: name.value,
           phoneNumber: phoneNumber.value,
-          permission: 1,
         },
       })
         .then((data) => {
-          if (data.error === false) {
-            location.href = '/login';
+          if (!data.error) {
+            displayToast('Please check your email to verify account.', { delay: 3000 });
+          } else {
+            displayToast(data.message, { delay: 3000 });
           }
         })
         .catch((err) => {
@@ -74,7 +75,11 @@ const login = () => {
         },
       })
         .then((data) => {
-          console.log(data);
+          if (!data.error) {
+            location.href = '/';
+          } else {
+            displayToast(data.message, { delay: 3000 });
+          }
         })
         .catch((err) => {
           displayToast(err, { delay: 3000 });
