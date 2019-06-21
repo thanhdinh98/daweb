@@ -2,7 +2,12 @@ const models = require('../../models');
 
 const allRoom = async (req, res) => {
   let alert = "Here's all your room!";
-  const room = await models.Room.findAll();
+  const { cinemaID } = req.body;
+  const room = await models.Room.findAll({
+    where: {
+      cinemaID,
+    },
+  });
   if (room) {
     return res.send({ error: false, message: alert, room });
   }
