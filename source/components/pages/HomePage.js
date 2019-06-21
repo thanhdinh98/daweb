@@ -12,7 +12,7 @@ const HomePage = data => `
       </div>
       <div class='col-9 movie-main-content'>
         <div class='hot-movie mb-3' style="padding:20px; padding-bottom:0">
-          <img src='${image}' class='img-fluid image'/>
+          <a href='/movie/1/detail'><img src='${image}' class='img-fluid image'/></a>
         </div>
         ${SliderMovies(data.movies)}
       </div>

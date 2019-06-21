@@ -8,7 +8,7 @@ import Footer from '../components/footer';
 
 import movieAPI from '../controllers/movie';
 import cinemaAPI from '../controllers/cinema';
-// /import accountAPI from '../controllers/account';
+import accountAPI from '../controllers/account';
 import {
   detailPageEvents,
   bookingPageEvents,
@@ -30,9 +30,7 @@ const App = (user, component) => `
 export default async (basePath, path) => {
   const [, , id] = path.split('/');
   const params = new URLSearchParams(location.search.slice(1));
-  const user = {
-    name: 'Thanh',
-  };
+  const user = await accountAPI.isLogin();
 
   switch (path) {
     case `${basePath}/${id}/detail`: {

@@ -9,8 +9,7 @@ const Login = () => `
         ${Field('password', 'Password', 'password', 'Please enter your password')}
         ${SubmitButton('loginButton', 'Log In')}
         <div class="div-linkTo">
-          <a href="/register">Create account</a>
-          <br><a href="/forgot">Forgot password</a>
+          <a href="/account/register">Create account</a>
           <br><a href="/">Home</a>
         </div>
       </div>
@@ -28,7 +27,7 @@ const Register = () => `
         ${Field('conPassword', 'Confirm Password', 'password', 'Please reenter your password')}
         ${SubmitButton('registerButton', 'Register')}
         <div class="div-linkTo">
-          <a href="/login">Back to sign in</a>
+          <a href="/account/login">Back to sign in</a>
           <br><a href="/">Home</a>
         </div>
       </div>
@@ -42,8 +41,8 @@ const Forgot = () => `
         ${Field('email', 'Email Address', 'email', 'Please enter your email')}
         ${SubmitButton('forgot-passwordButton', 'Send')}
         <div class="div-linkTo">
-          <a href="/register">Create account</a>
-          <br><a href="/login">Back to sign in</a>
+          <a href="/account/register">Create account</a>
+          <br><a href="/account/login">Back to sign in</a>
           <br><a href="/">Home</a>
         </div>
       </div>

@@ -18,7 +18,7 @@ const verifyEmail = async (req, res) => {
     });
     return res.send({ error: false, message: 'Verify email successfully.' });
   }
-  return res.send({ error: false, message: 'Verify email fail.' });
+  return res.send({ error: true, message: 'Verify email fail.' });
 };
 
 module.exports = { verifyEmail };
