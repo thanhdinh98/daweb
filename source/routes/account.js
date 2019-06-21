@@ -91,9 +91,10 @@ export default async (basePath, path) => {
       const token = params.get('token');
       if (!email || !token) {
         location.href = '/';
+      } else {
+        document.querySelector('#main').innerHTML = ResetpassPage();
+        handleEvents(resetpassEvents);
       }
-      document.querySelector('#main').innerHTML = ResetpassPage();
-      handleEvents(resetpassEvents);
       break;
     }
     default:

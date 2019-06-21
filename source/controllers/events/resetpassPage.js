@@ -5,7 +5,9 @@ import accountAPI from '../account';
 import { checkEmpty } from '../auth/validation';
 
 export default () => {
-  document.querySelector('#submit').onclick = async () => {
+  document.querySelector('#submit').onclick = async (e) => {
+    e.preventDefault();
+
     const params = new URLSearchParams(location.search.slice(1));
 
     let errorString = '';
@@ -13,21 +15,16 @@ export default () => {
 
     errorString += checkEmpty(password);
 
-    if (!_.isEmpty(errorString)) {
+    if (_.isEmpty(errorString)) {
       const email = params.get('email');
       const token = params.get('token');
-      if (!email || !token) {
-        location.href = '/';
+      const response = await accountAPI.resetPass(email, token, password.value);
+      console.log(response);
+      if (!response.error) {
+        location.href = '/account/login';
       } else {
-        const response = await accountAPI.resetPass(email, token);
-        if (!response.error) {
-          location.href = '/account/login';
-        } else {
-          displayToast(response.message, { delay: 3000 });
-        }
+        displayToast(response.message, { delay: 3000 });
       }
-    } else {
-      displayToast(errorString, { delay: 3000 });
     }
   };
 };

@@ -107,11 +107,7 @@ const forgot = () => {
         },
       })
         .then((data) => {
-          if (!data.error) {
-            displayToast('Please check your email to verify account.', { delay: 3000 });
-          } else {
-            displayToast(data.message, { delay: 3000 });
-          }
+          displayToast(data.message, { delay: 3000 });
         })
         .catch((err) => {
           displayToast(err, { delay: 3000 });
