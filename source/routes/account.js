@@ -78,21 +78,7 @@ export default async (basePath, path) => {
       if (user.error) {
         location.href = '/account/login';
       }
-      const history = [
-        {
-          time: '13/12/1998',
-          tickets: [
-            {
-              cinema: 'asgs',
-              nameMovie: 'asddg',
-              time: 'asfdgh',
-              room: 'dsafdgh',
-              seat: 'sadgfh',
-              price: 'asdfg',
-            },
-          ],
-        },
-      ];
+      const history = await accountAPI.getTicketHistory();
       document.querySelector('#main').innerHTML = App(user, TicketHistory(history));
       break;
     }

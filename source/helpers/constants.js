@@ -5,6 +5,7 @@ const END_POINTS = {
     LOGOUT: '/account/logout',
     IS_LOGIN: '/account/whoami',
     VERIFY: '/account/verify',
+    GET_HISTORY: '/account/get-history-of-booking',
   },
 
   CINEMA: {
