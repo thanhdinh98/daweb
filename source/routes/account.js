@@ -7,7 +7,7 @@ import Footer from '../components/footer';
 import authControllers from '../controllers/auth/index';
 import accountAPI from '../controllers/account';
 
-import { headerEvents } from '../controllers/events';
+import { headerEvents, updatePageEvents } from '../controllers/events';
 import { handleEvents, displayToast } from '../helpers';
 
 const App = (user, component) => `
@@ -48,8 +48,9 @@ export default async (basePath, path) => {
       if (user.error) {
         location.href = '/account/login';
       }
-      document.querySelector('#main').innerHTML = App(user, UpdateUserPage());
-      handleEvents(headerEvents);
+      const userInfo = await accountAPI.getUserInfo();
+      document.querySelector('#main').innerHTML = App(user, UpdateUserPage(userInfo.user));
+      handleEvents(headerEvents, updatePageEvents);
       break;
     }
     case `${basePath}/forgot`: {

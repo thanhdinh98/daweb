@@ -2,8 +2,7 @@ import moment from 'moment';
 import InfoField from './fieldInfo';
 
 const Ticket = (history, ticket) => `
-<br>
-<div class="row">
+<div class="ticket" style='height: auto; padding:10px; margin-bottom:10px'>
 <div class="tickets-body">
 <br>
 <div class="row">

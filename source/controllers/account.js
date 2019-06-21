@@ -15,4 +15,16 @@ export default {
     },
   }),
   getTicketHistory: () => services.send(END_POINTS.ACCOUNT.GET_HISTORY),
+  getUserInfo: () => services.send(END_POINTS.ACCOUNT.GET_INFO),
+  updateUser: (username, phoneNumber, oldPassword, newPassword) => services.send(
+    END_POINTS.ACCOUNT.UPDATE, {
+      type: 'json',
+      body: {
+        username,
+        phoneNumber,
+        oldPassword,
+        newPassword,
+      },
+    },
+  ),
 };

@@ -4,6 +4,7 @@ import bookingPageEvents from './bookingPage';
 import headerEvents from './header';
 import searchPageEvents from './searchPage';
 import showingNowPageEvents from './showingNowPage';
+import updatePageEvents from './updatePage';
 
 export {
   homePageEvents,
@@ -12,4 +13,5 @@ export {
   headerEvents,
   searchPageEvents,
   showingNowPageEvents,
+  updatePageEvents,
 };
