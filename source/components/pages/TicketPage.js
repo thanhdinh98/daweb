@@ -14,7 +14,7 @@ const groupTicketsByDate = (history) => {
   for (const his of history) {
     result += `
     <div>
-      <div><span>${moment(his.timeBooking).format('LLL')}</span></div>
+      <div class='date-history' style='height=20%'><span>${moment(his.timeBooking).format('LLL')}</span></div>
       <div>${listTickets(his, his.ticket)}</div>
     </div>
   `;
