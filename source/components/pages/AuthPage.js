@@ -10,6 +10,7 @@ const Login = () => `
         ${SubmitButton('loginButton', 'Log In')}
         <div class="div-linkTo">
           <a href="/account/register">Create account</a>
+          <a href="/account/forgot">Forgot password</a>
           <br><a href="/">Home</a>
         </div>
       </div>

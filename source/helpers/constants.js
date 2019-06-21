@@ -8,6 +8,7 @@ const END_POINTS = {
     GET_HISTORY: '/account/get-history-of-booking',
     GET_INFO: '/account/get-user-infor',
     UPDATE: '/account/update',
+    RESET_PASS: '/account/resetpass',
   },
 
   CINEMA: {

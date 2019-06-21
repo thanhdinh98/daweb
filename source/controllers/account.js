@@ -27,4 +27,12 @@ export default {
       },
     },
   ),
+  resetPass: (email, token, password) => services.send(END_POINTS.ACCOUNT.RESET_PASS, {
+    type: 'json',
+    body: {
+      email,
+      token,
+      password,
+    },
+  }),
 };

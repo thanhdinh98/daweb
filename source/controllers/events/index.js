@@ -5,6 +5,7 @@ import headerEvents from './header';
 import searchPageEvents from './searchPage';
 import showingNowPageEvents from './showingNowPage';
 import updatePageEvents from './updatePage';
+import resetpassEvents from './resetpassPage';
 
 export {
   homePageEvents,
@@ -14,4 +15,5 @@ export {
   searchPageEvents,
   showingNowPageEvents,
   updatePageEvents,
+  resetpassEvents,
 };
