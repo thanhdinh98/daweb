@@ -12,7 +12,7 @@ async function sendEmail(to, subject, text, html) {
   });
 
   const info = await transporter.sendMail({
-    from: `"LTWeb2 👻" <${process.env.EMAIL_USER}>`,
+    from: 'LTWeb2 👻',
     to,
     subject,
     text,
