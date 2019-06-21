@@ -1,4 +1,7 @@
 PGPASSWORD=pass psql -h localhost -p 35432 -d db -U user -c "\copy \"Movies\" from ${PWD}/server/data/movie.csv csv header;"
 PGPASSWORD=pass psql -h localhost -p 35432 -d db -U user -c "\copy \"Cinemas\" from ${PWD}/server/data/cinema.csv csv header;"
+PGPASSWORD=pass psql -h localhost -p 35432 -d db -U user -c "\copy \"Users\" from ${PWD}/server/data/user.csv csv header;"
 PGPASSWORD=pass psql -h localhost -p 35432 -d db -U user -c "\copy \"Rooms\" from ${PWD}/server/data/room.csv csv header;"
 PGPASSWORD=pass psql -h localhost -p 35432 -d db -U user -c "\copy \"Showtimes\" from ${PWD}/server/data/showtime.csv csv header;"
+PGPASSWORD=pass psql -h localhost -p 35432 -d db -U user -c "\copy \"Bookings\" from ${PWD}/server/data/booking.csv csv header;"
+PGPASSWORD=pass psql -h localhost -p 35432 -d db -U user -c "\copy \"Tickets\" from ${PWD}/server/data/ticket.csv csv header;"
