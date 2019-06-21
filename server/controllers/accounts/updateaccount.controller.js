@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable prefer-destructuring */
 const bcrypt = require('bcryptjs');
 const models = require('../../models');
@@ -9,6 +10,7 @@ const updateInfoUser = async (req, res) => {
   const {
     oldPassword, newPassword, username, phoneNumber,
   } = req.body;
+
 
   if (!newPassword && !username && !phoneNumber) {
     return res.send({ error: true, message: 'Please fill out all requirement fields' });
@@ -36,7 +38,7 @@ const updateInfoUser = async (req, res) => {
   const dataUpdate = {};
 
   if (newPassword) {
-    await bcrypt.hash(newPassword, saltRound).then((hash) => {
+    await bcrypt.hash(newPassword, saltRound).then((hash, err) => {
       dataUpdate.password = hash;
     });
   }

@@ -5,7 +5,8 @@ const sendEmail = require('./sendemail.controller');
 const saltRound = 10;
 
 const sendLinkResetPassword = async (req, res) => {
-  const { email } = req.body;
+  const { email } = req.query;
+
   const user = await model.User.findOne({
     where: {
       email,
@@ -16,9 +17,9 @@ const sendLinkResetPassword = async (req, res) => {
     return res.end({ error: true, message: 'WARNING: System occurs a authencation problem!!!' });
   }
 
-  const domain = process.env.DOMAIN || 'http://localhost:5000/';
+  const domain = process.env.DOMAIN || 'http://localhost:3000/';
 
-  let content = `<a href="${domain}/api/account/reset?email=${email}&token=${user.token}">here</a>`;
+  let content = `<a href="${domain}/account/reset?email=${email}&token=${user.token}">here</a>`;
   content = `Click this link to reset password: ${content}`;
 
   await sendEmail(email, "CodeGym's CINEMA - Reset Password", '', content);
