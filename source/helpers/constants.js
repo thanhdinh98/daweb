@@ -6,6 +6,8 @@ const END_POINTS = {
     IS_LOGIN: '/account/whoami',
     VERIFY: '/account/verify',
     GET_HISTORY: '/account/get-history-of-booking',
+    GET_INFO: '/account/get-user-infor',
+    UPDATE: '/account/update',
   },
 
   CINEMA: {
@@ -35,6 +37,7 @@ const ID = {
     SUMBIT_FORM: 'submitFormButton',
     DETAIL: 'detailButton',
     SEARCH: 'searchButton',
+    UPDATE_INFO: 'updateInfo',
   },
 
   VALUE: {

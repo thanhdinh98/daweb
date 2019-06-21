@@ -1,10 +1,12 @@
 import Field from '../Form/field';
 import SubmitButton from '../Button/update';
 
-const UpdatePage = () => `
+import { ID } from '../../helpers/constants';
+
+const UpdatePage = user => `
 <div class="update-info-user-page">
 <div class="update-info-user-title">
-  <span>Update user</span>
+  <span>Update User</span>
 </div>
 <div class="update-info-user-body">
 
@@ -13,9 +15,8 @@ const UpdatePage = () => `
       <div class="update-info-content">
         <form>
           <div class="Update-title"><b>Update infomation user</b></div>
-          ${Field('name', 'Name', 'text', 'Trần Tuấn Việt')}
-          ${Field('phone-number', 'Phone Number', 'number', '0123456789')}
-          ${SubmitButton('update-info')}
+          ${Field('name', 'Name', 'text', user.userName)}
+          ${Field('phone-number', 'Phone Number', 'number', user.phoneNumber)}
         </form>
       </div>
     </div>
@@ -23,10 +24,9 @@ const UpdatePage = () => `
       <div class="update-info-content">
         <form>
           <div class="Update-title"><b>Change password</b></div>
-          ${Field('old-password', 'Old password', 'password', 'Enter your old password')}
-          ${Field('new-password', 'New password', 'password', 'Enter your new password')}
-          ${Field('confirmed-password', 'Confirmed new password', 'password', 'Enter your Confirmed new password')}
-          ${SubmitButton('update-password')}
+          ${Field('old-password', 'Old password', 'password', '')}
+          ${Field('new-password', 'New password', 'password', '')}
+          ${SubmitButton(ID.BUTTON.UPDATE_INFO)}
         </form>
       </div>
     </div>
