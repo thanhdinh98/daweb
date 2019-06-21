@@ -44,8 +44,8 @@ const deleteCinema = async (req, res) => {
       where: {
         cinemaID,
       },
+    // eslint-disable-next-line no-unused-vars
     }).catch((err) => {
-      console.log(err);
     });
 
     return res.send({ error: false, message: alert });

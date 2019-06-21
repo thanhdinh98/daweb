@@ -1,3 +1,7 @@
+/* eslint-disable no-tabs */
+/* eslint-disable guard-for-in */
+/* eslint-disable no-await-in-loop */
+/* eslint-disable no-multi-str */
 /* eslint-disable consistent-return */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable no-else-return */
@@ -5,6 +9,8 @@
 const db = require('../../models/index');
 const models = require('../../models');
 const sendSMS = require('./sendSMS');
+const sendEmail = require('../accounts/sendemail.controller');
+const genQRCode = require('../ticket/generate-qr-code');
 
 const Op = db.Sequelize.Op;
 
@@ -79,6 +85,71 @@ const isInArray = (needle, haystack) => {
   return true;
 };
 
+
+const ticketAlreadyBooked = async (bookingID) => {
+  const tickets = await db.sequelize.query('SELECT A."timeBooking", B."nameMovie", B."name", B."address", B."room", B."type", A."ticketID", A."rowOfSeatID", A."colOfSeatID", A."price"\
+  FROM\
+  (SELECT "b"."timeBooking", "b"."showtimeID", "tk".* FROM "Bookings" AS "b"\
+  JOIN "Tickets" AS "tk" ON "tk"."bookingID" = "b"."bookingID"\
+  AND "b"."bookingID" = :bookingIDSS)AS A\
+  JOIN\
+  (SELECT "st"."showtimeID", "mv"."nameMovie", "cnm"."name", "cnm"."address", "r"."name" as "room", "r"."type"\
+  FROM "Showtimes" as "st"\
+  JOIN "Movies" as "mv" ON "st"."movieID" = "mv"."movieID"\
+  JOIN "Rooms" as "r" ON "r"."roomID" = "st"."roomID"\
+  JOIN "Cinemas" as "cnm" ON "cnm"."cinemaID" = "r"."cinemaID") AS B\
+  ON A."showtimeID" = B."showtimeID"\
+  ORDER BY A."timeBooking" DESC\
+  ',
+  { replacements: { bookingIDSS: bookingID }, type: db.sequelize.QueryTypes.SELECT });
+
+  return tickets;
+};
+
+const makeContentForOneTicket = async (ticket) => {
+  const qrCode = await genQRCode.generateQRCode(ticket.ticketID);
+  return `<div style="text-align: center;">
+  <div style="padding: 10px; font-size: 20px; font-weight: bold;">
+    TICKET
+  </div>
+</div>
+<br>
+<div style="height: 140px; padding: 40px; width: 50%; margin: auto; background-color: rgba(255,140,0,1); border: none; border-radius: 20px; top: 10px">
+  <div style="float: left; width: 70%; height: auto; overflow: hidden;">
+    <div style="margin-left: 15%; background-color: white; width: 80%; height: auto; padding: 10px; border: none; border-radius: 10px">
+      <b>Cinema:</b> ${ticket.name}.
+      <br>
+      <b>Movie name:</b> ${ticket.nameMovie}.
+      <br>
+      <b>Room:</b> ${ticket.room}.
+      <br>
+      <b>Type:</b> ${ticket.type}.
+      <br>
+      <b>Price:</b> ${ticket.price} VND.
+      <br>
+      <b>Seats:</b> ${String.fromCharCode((`${ticket.rowOfSeatID}`).charCodeAt(0) + 17) + (ticket.colOfSeatID + 1)}.
+    </div>	
+  </div>
+  <div style="float: right; width: 30%; height: auto; padding-top: 20px">
+    <div>
+      <center>
+        <img src="${qrCode}" width="100px" height="100px">	
+      </center>
+    </div>
+  </div>
+</div>
+<br>`;
+};
+
+const makeContentForBooking = async (tickets) => {
+  let content = '';
+  for (const ticket of tickets) {
+    content += await makeContentForOneTicket(ticket);
+  }
+
+  return content;
+};
+
 const getPhoneNumber = async (userID) => {
   const user = await models.User.findOne({
     where: {
@@ -129,7 +200,6 @@ const bookingMovie = async (req, res) => {
 
   // booking
   const price = await priceShowtime(showtimeID);
-
   const booking = await models.Booking.create({
     showtimeID,
     userID,
@@ -140,23 +210,21 @@ const bookingMovie = async (req, res) => {
   // insert ticket
   // eslint-disable-next-line prefer-destructuring
   const bookingID = booking.dataValues.bookingID;
-
-  seats.forEach(async (seat) => {
+  for (const seat of seats) {
     await models.Ticket.create({
       bookingID,
       rowOfSeatID: seat[0],
       colOfSeatID: seat[1],
       price,
     });
-  });
-
+  }
 
   // after inserted successfull - send sms
   let content = 'Codegym - Cinema.\nThanks for your booking.\nYour seats: ';
   seats.forEach((seat) => {
     const beautifulSeat = String.fromCharCode((`${seat[0]}`).charCodeAt(0) + 17);
     content += beautifulSeat;
-    content += seat[1];
+    content += (seat[1] + 1);
     content += ', ';
   });
   content = content.slice(0, content.length - 2);
@@ -165,6 +233,11 @@ const bookingMovie = async (req, res) => {
   if (phoneNumber) {
     sendSMS(phoneNumber, content);
   }
+
+  // after inserted successfull - send email
+  const tickets = await ticketAlreadyBooked(bookingID);
+  const contentEmail = await makeContentForBooking(tickets);
+  await sendEmail(res.locals.user.email, "CodeGym's CINEMA - Ticket", '', contentEmail);
 
   return res.send({
     error: false, message: 'Booking successful.', room: sizeRoomOfShowtime.name, type: sizeRoomOfShowtime.type,
