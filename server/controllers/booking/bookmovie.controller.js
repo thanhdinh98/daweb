@@ -152,19 +152,19 @@ const bookingMovie = async (req, res) => {
 
 
   // after inserted successfull - send sms
-  // let content = 'Codegym - Cinema.\nThanks for your booking.\nYour seat: ';
-  // seats.forEach((seat) => {
-  //   const beautifulSeat = String.fromCharCode((`${seat[0]}`).charCodeAt(0) + 17);
-  //   content += beautifulSeat;
-  //   content += seat[1];
-  //   content += ', ';
-  // });
-  // content = content.slice(0, content.length - 2);
-  // content += '.';
-  // const phoneNumber = await getPhoneNumber(userID);
-  // if (phoneNumber) {
-  //   sendSMS(phoneNumber, content);
-  // }
+  let content = 'Codegym - Cinema.\nThanks for your booking.\nYour seats: ';
+  seats.forEach((seat) => {
+    const beautifulSeat = String.fromCharCode((`${seat[0]}`).charCodeAt(0) + 17);
+    content += beautifulSeat;
+    content += seat[1];
+    content += ', ';
+  });
+  content = content.slice(0, content.length - 2);
+  content += '.';
+  const phoneNumber = await getPhoneNumber(userID);
+  if (phoneNumber) {
+    sendSMS(phoneNumber, content);
+  }
 
   return res.send({
     error: false, message: 'Booking successful.', room: sizeRoomOfShowtime.name, type: sizeRoomOfShowtime.type,

@@ -54,7 +54,7 @@ const register = async (req, res) => {
     });
   });
 
-  const domain = process.env.DOMAIN || 'http://localhost:5000/api';
+  const domain = process.env.DOMAIN || 'http://localhost:3000';
   let content = `<a href="${domain}/account/verify?email=${inputEmail}&token=${tokenGen}">here</a>`;
   content = `Click this link to verify account: ${content}`;
 
