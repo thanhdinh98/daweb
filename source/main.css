@@ -169,7 +169,7 @@ h6 {
 
 #main {
   background-color: rgba(0, 0, 0, 0.5);
-  text-shadow: 1px 1px black;
+  /* text-shadow: 1px 1px black; */
 }
 
 .login {
@@ -586,11 +586,11 @@ body {
   height: 340px;
 }
 
-.poster-list-movie:hover {
+/* .poster-list-movie:hover {
   width: 250px;
   height: 350px;
   transition: 0.5s;
-}
+} */
 
 .btn-booking-list-movie,
 .btn-detail-list-movie {
@@ -669,7 +669,8 @@ body {
 
 .tickets-body{
 	background-color:rgba(255,255,255, 1);
-	height: 250px;
+  height: auto;
+  padding: 10px;
 	width: 90%;
 	margin: auto;
 	/*margin-top: 50px;*/
@@ -932,4 +933,44 @@ body {
 
 .info-movie{
   padding: 0px 5px 5px 5px;
+}
+
+.date-history{
+  padding: 20px;
+  margin-bottom: 5px;
+}
+
+.form-add-movie{
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 80%;
+  padding: 10px;
+}
+
+.right{
+  text-align: right;
+}
+
+.select-Genre{
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 80%;
+  color:white;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.select-Genre option{
+ background-color: rgba(0,0,0,0.5); 
+}
+
+.select-Room{
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 90%;
+  color:white;
+  background-color: rgba(0,0,0,0.5);
 }

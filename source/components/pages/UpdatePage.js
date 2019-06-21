@@ -15,7 +15,7 @@ const UpdatePage = () => `
           <div class="Update-title"><b>Update infomation user</b></div>
           ${Field('name', 'Name', 'text', 'Trần Tuấn Việt')}
           ${Field('phone-number', 'Phone Number', 'number', '0123456789')}
-          ${SubmitButton('update-info')};
+          ${SubmitButton('update-info')}
         </form>
       </div>
     </div>
@@ -26,7 +26,7 @@ const UpdatePage = () => `
           ${Field('old-password', 'Old password', 'password', 'Enter your old password')}
           ${Field('new-password', 'New password', 'password', 'Enter your new password')}
           ${Field('confirmed-password', 'Confirmed new password', 'password', 'Enter your Confirmed new password')}
-          ${SubmitButton('update-password')};
+          ${SubmitButton('update-password')}
         </form>
       </div>
     </div>

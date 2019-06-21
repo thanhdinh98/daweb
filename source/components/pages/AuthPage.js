@@ -24,7 +24,7 @@ const Register = () => `
         ${Field('email', 'Email Address', 'email', 'Please enter your email')}
         ${Field('phone', 'Phone Number', 'text', 'Please enter your phone number')}
         ${Field('password', 'Password', 'password', 'Please enter your password')}
-        ${Field('conPassword', 'Confirm Password', 'password', 'Please reenter your password')}
+        ${Field('conPassword', 'Confirm Password', 'password', 'Please enter your password')}
         ${SubmitButton('registerButton', 'Register')}
         <div class="div-linkTo">
           <a href="/account/login">Back to sign in</a>

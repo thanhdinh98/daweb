@@ -6,7 +6,7 @@ const basename = path.basename(__filename);
 const db = {};
 
 const isLogging = process.env.IS_LOGGING === 'true';
-const sequelize = new Sequelize(process.env.DATABASE_URL || '', { logging: isLogging });
+const sequelize = new Sequelize(process.env.DATABASE_URL || 'postgres://postgres:Viettran-040898@localhost:5432/movie', { logging: isLogging });
 
 fs
   .readdirSync(__dirname)
