@@ -8,7 +8,7 @@ const updateAccountCtrl = require('../controllers/accounts/updateaccount.control
 const verifyCtrl = require('../controllers/accounts/verify.controller');
 const whoamiCtrl = require('../controllers/accounts/whoami.controller');
 const getHistoryCtrl = require('../controllers/ticket/ticket.controller');
-
+const getUserCtrl = require('../controllers/accounts/get-user-info.controller');
 const restricted = require('../middlewares/restricted.mdw');
 
 const router = Router();
@@ -23,5 +23,6 @@ router.get('/verify', verifyCtrl.verifyEmail);
 router.post('/update', restricted, updateAccountCtrl.updateInfoUser);
 router.get('/whoami', restricted, whoamiCtrl.whoami);
 router.get('/get-history-of-booking', restricted, getHistoryCtrl.getHistoryBooking);
+router.get('/get-user-infor', restricted, getUserCtrl.getUserInfo);
 
 module.exports = router;

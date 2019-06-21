@@ -37,7 +37,7 @@ const authAdmin = async (req, res, next) => {
     const user = await models.User.findOne({
       where: {
         email,
-        permission: 1,
+        permission: 2,
       },
     });
     if (!user) {
