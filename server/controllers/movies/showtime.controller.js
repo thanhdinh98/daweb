@@ -19,42 +19,4 @@ const allShowTime = async (req, res) => {
   return res.send({ error: true, message: alert });
 };
 
-// const searchShowTimeOfMovieBelongToCinema = async (req, res) => {
-//   let alert = "Here's your all showtime.";
-//   const { movieID } = req.body;
-//   // rewite
-//   const showtime = await models.Showtime.findAll({
-//     where: {
-//       movieID,
-//       startTime: {
-//         $gte: Sequelize.fn('NOW'),
-//       },
-//     },
-//   });
-
-//   if (showtime) {
-//     return res.send({ error: false, message: alert, showtime });
-//   }
-//   alert = 'Cannot find any showtime that you need.';
-//   return res.send({ error: true, message: alert });
-// };
-
-// const searchShowTimeOfCinema = async (req, res) => {
-//   let alert = "Here's your all showtime.";
-//   // const { cinemaID } = req.body;
-
-//   const showtime = await models.Showtime.findAll({
-//     where: {
-//       include: [
-//       ],
-//     },
-//   });
-
-//   if (showtime) {
-//     return res.send({ error: false, message: alert, showtime });
-//   }
-//   alert = 'Cannot find any showtime that you need.';
-//   return res.send({ error: false, message: alert });
-// };
-
-module.exports = { allShowTime /* searchShowTimeOfMovieBelongToCinema, searchShowTimeOfCinema */ };
+module.exports = { allShowTime };

@@ -21,8 +21,6 @@ router.get('/search-movie-by-name', moviesCtrl.searchMovieByName);
 router.get('/get-movie-by-genre', moviesCtrl.getMovieByGenre);
 router.post('/all-room', roomCtrl.allRoom);
 router.post('/all-showtime', showtimeCtrl.allShowTime);
-// eslint-disable-next-line max-len
-// router.post('/search-showtime-of-movie-belong-to-cinema', showtimeCtrl.searchShowTimeOfMovieBelongToCinema);
 router.post('/all-ticket', ticketCtrl.allTicket);
 router.post('/all-user', userCtrl.allUser);
 
