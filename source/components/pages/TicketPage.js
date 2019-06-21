@@ -1,9 +1,10 @@
+import moment from 'moment';
 import Ticket from '../Ticket/ticket';
 
-const listTickets = (tickets) => {
+const listTickets = (history, tickets) => {
   let result = '';
   for (const ticket of tickets) {
-    result += Ticket(ticket);
+    result += Ticket(history, ticket);
   }
   return result;
 };
@@ -13,8 +14,8 @@ const groupTicketsByDate = (history) => {
   for (const his of history) {
     result += `
     <div>
-      <div><span>${his.time}</span></div>
-      <div>${listTickets(his.tickets)}</div>
+      <div><span>${moment(his.timeBooking).format('LLL')}</span></div>
+      <div>${listTickets(his, his.ticket)}</div>
     </div>
   `;
   }

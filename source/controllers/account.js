@@ -14,4 +14,5 @@ export default {
       token,
     },
   }),
+  getTicketHistory: () => services.send(END_POINTS.ACCOUNT.GET_HISTORY),
 };
