@@ -1,3 +1,4 @@
+import * as _ from 'lodash';
 import { ID } from '../helpers/constants';
 
 const NavBar = (user) => {
@@ -9,6 +10,10 @@ const NavBar = (user) => {
                 <a class="sign-in"  href='/account/logout'>Logout</a>`;
   }
 
+  if (!_.isEmpty(user) && !_.isEmpty(user.user) && _.isEqual(user.user.permission, 2)) {
+    userName = `<a class="sign-in"  href='/account/update'>${user.user.username}</a>
+                <a class="sign-in"  href='/account/logout'>Logout</a>`;
+  }
   return `
   <div class='row navar'>
     <div class='col-2 d-flex align-items-center justify-content-center'>

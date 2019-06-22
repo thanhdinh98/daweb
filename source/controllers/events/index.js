@@ -6,6 +6,7 @@ import searchPageEvents from './searchPage';
 import showingNowPageEvents from './showingNowPage';
 import updatePageEvents from './updatePage';
 import resetpassEvents from './resetpassPage';
+import managerEvents from './managerPage';
 
 export {
   homePageEvents,
@@ -16,4 +17,5 @@ export {
   showingNowPageEvents,
   updatePageEvents,
   resetpassEvents,
+  managerEvents,
 };

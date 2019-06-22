@@ -1,4 +1,4 @@
-import button from '../Button/button';
+import button from '../../Button/button';
 
 const ManagementBodyTable = data => `
 <tr>

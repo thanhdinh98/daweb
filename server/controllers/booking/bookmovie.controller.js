@@ -207,6 +207,7 @@ const bookingMovie = async (req, res) => {
     totalPrice: price * seats.length,
   });
 
+
   // insert ticket
   // eslint-disable-next-line prefer-destructuring
   const bookingID = booking.dataValues.bookingID;
