@@ -3,7 +3,6 @@ const models = require('../../models');
 const addCinema = async (req, res) => {
   let alert = 'Cinema has been added successfully.';
   const { cinemaName, cinemaAdddress } = req.body;
-
   if (!cinemaName || !cinemaAdddress) {
     alert = 'Please fill out all requirement field.';
     return res.send({ error: true, message: alert });
@@ -18,6 +17,8 @@ const addCinema = async (req, res) => {
     await models.Cinema.create({
       name: cinemaName,
       address: cinemaAdddress,
+    }).catch((err) => {
+      console.log(err);
     });
     return res.send({ error: false, message: alert });
   }
@@ -53,4 +54,5 @@ const deleteCinema = async (req, res) => {
   alert = "Can't find any cinema match with your selection.";
   return res.send({ error: true, message: alert });
 };
+
 module.exports = { addCinema, deleteCinema };

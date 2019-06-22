@@ -1,13 +1,13 @@
-import table from '../Table/ManagementTable';
-import input from '../Form/inputField';
+// import table from '../Table/ManagementTable';
+import input from '../../Form/inputField';
 
-const infoTable = {
-  info1: 'Movie',
-  info2: 'Genre',
-  info3: 'Money toTal',
-};
+// const infoTable = {
+//   info1: 'Movie',
+//   info2: 'Genre',
+//   info3: 'Money toTal',
+// };
 
-const MovieManagement = data => `
+const MovieManagement = () => `
 <div class="update-cluster-cinema">
 <span class="update-cluster-cinema-title">Add Movie</span>
 <div class="update-cluster-cinema-body">
@@ -60,12 +60,5 @@ const MovieManagement = data => `
   </form>
 </div>
 </div>
-<div class="cluster-cinema">
-<span class="cluster-cinema-title">
-  Movie
-</span>
-<br>
-<br>
-${table(infoTable, data)}
-</div>`;
+`;
 export default MovieManagement;

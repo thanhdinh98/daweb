@@ -1,7 +1,7 @@
 const Field = (id, label, type, placeHodler, clas) => `
     <div class="form-group">
       <label>${label}</label>
-      <input type=${type} class=${clas} placeholder=${placeHodler} id=${id}>
+      <input type="${type}" class="${clas}" placeholder="${placeHodler}" id="${id}">
     </div>
   `;
 
