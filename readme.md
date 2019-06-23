@@ -1,11 +1,51 @@
-# LTW2_19_6 : CodeGym
+# Đồ Án Web 2
+> Ứng dụng đặt vé xem phim.
 
-Here is our project of Web Development 2.
 
-So my wonderful team has:
- + 1660735 - Đào Nguyên Vũ.
- + 1660712 - Huỳnh Xuân Viên.
- + 1660715 - Trần Tuấn Việt.
- + 1660554 - Đinh Nhật Thanh.
+![](./images/image.png)
 
-Let's have some fun and high scores, cheers!!!!!
+## Cài đặt (môi trường dev)
+### Required: 
+Nodejs, psql
+
+Server:
+
+```sh
+sudo docker-compose up
+
+bash data.sh
+```
+
+Client:
+
+```sh
+npm run dev:client
+```
+
+Config file .env
+
+```sh
+DOMAIN=http://localhost:3000
+```
+
+## Công nghệ sử dụng
+
+Language:
+- Javascript
+
+Server:
+- Express framework
+- Postgresql (Sequelize apis)
+
+Client:
+- Parcel
+
+Other:
+- Docker
+
+## Thực hiện
+- **Thanh Dinh**
+- Vu Dao
+- Viet Tran
+- Vien Huynh
+
